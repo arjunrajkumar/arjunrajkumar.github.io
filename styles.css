@@ -40,8 +40,34 @@ a:visited {
   color: #941352;
 }
 
-p.subtitle {
-  margin-top: -1em;
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: -0.5em;
+  font-size: 1.15em;
+  font-weight: 700;
+}
+
+.bitcoin-icon {
+  flex: none;
+}
+
+.site-footer {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+}
+
+.site-footer a,
+.site-footer a:visited {
+  display: inline-flex;
+  padding: 0.25em;
+  color: #454545;
+}
+
+.site-footer a:hover {
+  color: #000;
 }
 
 .story {
