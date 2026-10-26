@@ -41,16 +41,9 @@ a:visited {
 }
 
 .subtitle {
-  display: flex;
-  align-items: center;
-  gap: 0.4em;
   margin-top: -0.5em;
   font-size: 1.15em;
   font-weight: 700;
-}
-
-.bitcoin-icon {
-  flex: none;
 }
 
 .site-footer {
