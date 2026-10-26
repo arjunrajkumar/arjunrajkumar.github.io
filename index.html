@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Arjun Rajkumar. Currently exploring Bitcoin. Previously a Ruby on Rails software developer.">
     <title>Arjun Rajkumar</title>
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
+    <script src="gallery.js?v=1" defer></script>
   </head>
   <body>
     <main>
@@ -18,8 +19,26 @@
       <ul>
         <li>Part of the early core team building <a href="https://www.linkedin.com/company/lummo-official/about/" target="_blank" rel="noopener noreferrer">Lummo</a> using Rails, React and GraphQL. The app was used by over 2 million small merchants and retailers.</li>
         <li>Building out a Rails engine and adding tests for <a href="https://www.forsbergplustwo.com/" target="_blank" rel="noopener noreferrer">Forsberg+two</a> apps used by 100,000+ businesses.</li>
-        <li>I’ve also <a href="shopify-apps/">built and grown</a> Shopify apps used by thousands of businesses.</li>
+        <li>I’ve also <a href="shopify-apps/" id="gallery-link">built and grown</a> Shopify apps used by thousands of businesses.</li>
       </ul>
     </main>
+
+    <dialog id="gallery" aria-labelledby="gallery-title">
+      <div class="gallery-header">
+        <h2 id="gallery-title">Shopify apps</h2>
+        <button type="button" id="gallery-close" autofocus>Close</button>
+      </div>
+      <figure class="gallery-photo">
+        <div class="gallery-image-frame">
+          <img id="gallery-image" src="assets/shopify-apps/merchant-review.jpg" width="720" height="1059" alt="A five-star Shopify review: the app optimized 50,000 images for a store with 17,000 products in less than 24 hours.">
+        </div>
+        <figcaption id="gallery-caption">A review from a Shopify merchant.</figcaption>
+      </figure>
+      <div class="gallery-controls">
+        <button type="button" id="gallery-previous" disabled>Previous</button>
+        <span id="gallery-position" role="status" aria-live="polite" aria-atomic="true">1 of 5</span>
+        <button type="button" id="gallery-next">Next</button>
+      </div>
+    </dialog>
   </body>
 </html>
