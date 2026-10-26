@@ -1,0 +1,64 @@
+/* Typography and layout adapted from https://thebestmotherfucking.website/. */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/open-sans-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/open-sans-bold.woff2") format("woff2");
+}
+
+body {
+  font-family: "Open Sans", Arial;
+  color: #454545;
+  font-size: 16px;
+  margin: 2em auto;
+  max-width: 800px;
+  padding: 1em;
+  line-height: 1.4;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+a {
+  color: #0077aa;
+}
+
+a:visited {
+  color: #941352;
+}
+
+p.subtitle {
+  margin-top: -1em;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #000;
+  }
+
+  body {
+    color: #d9d9d9;
+  }
+
+  a {
+    color: #00a2e7;
+  }
+
+  a:visited {
+    color: #ca1a70;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    text-align: left;
+  }
+}
