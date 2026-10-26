@@ -44,6 +44,21 @@ p.subtitle {
   margin-top: -1em;
 }
 
+.story {
+  margin: 2em 0;
+}
+
+.story img {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+.story figcaption {
+  margin-top: 0.5em;
+}
+
 @media screen and (max-width: 500px) {
   body {
     text-align: left;
