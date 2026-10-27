@@ -46,6 +46,23 @@ a:visited {
   font-weight: 700;
 }
 
+.home-page > .subtitle {
+  margin: 0 0 0.75rem;
+}
+
+.home-page > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.home-page > ul + .subtitle {
+  margin-top: 2rem;
+}
+
+.home-page > ul > li + li {
+  margin-top: 0.5rem;
+}
+
 .site-footer {
   margin-top: 3em;
   padding-top: 1em;
