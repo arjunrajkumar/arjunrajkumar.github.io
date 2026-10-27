@@ -6,6 +6,8 @@
 body{margin:2em auto;padding:1em 28px;max-width:1600px;font-size:16px;line-height:1.4}
 main{width:100%;margin:0 auto}
 header{padding:0 0 30px}
+.home-link{display:block;width:max-content;margin-bottom:24px;font-size:14px;font-weight:400;color:#0077aa;text-decoration:underline}
+.home-link:visited{color:#941352}
 h1{font-size:1.15em;line-height:1.4;font-weight:700;margin:0}
 .subtitle{font-size:16px;font-weight:400;line-height:1.4;margin:16px 0 0}
 .column-labels,.streams{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
