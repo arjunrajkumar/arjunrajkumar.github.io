@@ -57,7 +57,7 @@ a:visited {
 
 .bitcoin-intro > .subtitle {
   display: inline;
-  margin: 0 0.5rem 0 0;
+  margin: 0;
 }
 
 .bitcoin-intro > .learning-progress {
