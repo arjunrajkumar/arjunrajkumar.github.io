@@ -50,11 +50,21 @@ a:visited {
   margin: 0 0 0.75rem;
 }
 
-.learning-progress {
-  margin: 0 0 1rem;
+.bitcoin-intro {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.bitcoin-intro > .subtitle {
+  display: inline;
+  margin: 0 0.5rem 0 0;
+}
+
+.bitcoin-intro > .learning-progress {
+  display: inline;
+  margin: 0;
   color: #666;
   font-size: 0.875rem;
-  line-height: 1.5;
 }
 
 .home-page > ul {
