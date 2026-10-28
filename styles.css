@@ -181,4 +181,12 @@ html.gallery-open {
   body {
     text-align: left;
   }
+
+  .home-body {
+    margin-top: 0;
+  }
+
+  .home-page > h1 {
+    margin-top: 0;
+  }
 }
