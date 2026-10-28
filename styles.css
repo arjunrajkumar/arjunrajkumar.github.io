@@ -50,6 +50,13 @@ a:visited {
   margin: 0 0 0.75rem;
 }
 
+.learning-progress {
+  margin: 0 0 1rem;
+  color: #666;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 .home-page > ul {
   margin-top: 0;
   margin-bottom: 0;
