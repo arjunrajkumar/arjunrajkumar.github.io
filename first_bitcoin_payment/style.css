@@ -10,6 +10,9 @@ header{padding:0 0 30px}
 .home-link:visited{color:#941352}
 h1{font-size:1.15em;line-height:1.4;font-weight:700;margin:0}
 .subtitle{font-size:16px;font-weight:400;line-height:1.4;margin:16px 0 0}
+.transaction-context{font-size:14px;line-height:1.5;margin:8px 0 0}
+.transaction-context a{color:#0077aa;text-decoration:underline}
+.transaction-context a:visited{color:#941352}
 .column-labels,.streams{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
 .column-labels{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .column-labels>div{padding:15px 0;min-width:0}
