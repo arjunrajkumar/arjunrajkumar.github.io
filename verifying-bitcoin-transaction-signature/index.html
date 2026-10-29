@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Verifying a Bitcoin transaction signature (Python)">
+    <title>Verifying a Bitcoin transaction signature (Python) — Arjun Rajkumar</title>
+    <link rel="stylesheet" href="../styles.css?v=13">
+    <link rel="stylesheet" href="style.css?v=5">
+  </head>
+  <body>
+    <main class="post-page">
+      <article aria-labelledby="post-title">
+        <header class="post-header">
+          <a class="home-link" href="../">Home</a>
+          <h1 id="post-title">Verifying a Bitcoin transaction signature (Python)</h1>
+        </header>
+
+        <div class="post-section">
+          <p>The goal by the end of this is for me to verify the transaction myself for a confirmed transaction.</p>
+          <p>I have chosen this transaction: <a class="transaction-id" href="https://mempool.space/tx/29a3efd3ef04f9153d47a990bd7b048a4b2d213daaa5fb8ed670fb85f13bdbcf" target="_blank" rel="noopener noreferrer">29a3efd3ef04f9153d47a990bd7b048a4b2d213daaa5fb8ed670fb85f13bdbcf</a></p>
+          <p>This transaction was confirmed in block 153509 on 16 November 2011. It has 11 inputs and two outputs: 50,000 BTC and 500,000 BTC. From these 11 inputs, I will find the highest value input, then check the output related to that, and verify the spend manually via Python.</p>
+        </div>
+
+        <section class="post-section" aria-labelledby="learnings">
+          <h2 class="subtitle" id="learnings">Learnings:</h2>
+          <ul>
+            <li>The blockchain is a database, but it's not like a normal DB. Instead, it's more like a snapshot to verify that things existed in a state on a previous date. For example, there is no simple query to find which block a transaction exists on! There is no direct lookup that a node can perform. So, Bitcoin Core creates two databases, a UTXO DB (outputs that have not been spent), and an optional transaction index DB. Because I'm running a pruned node, I don't have the transaction index DB.</li>
+            <li>Because of the pruned node, I have to request any transaction, blocks, etc. from peers who are running a full node. But I still can't request a transaction from a peer without a block hash.</li>
+            <li>Everything in the blockchain is stored in bytes. The bitcoin-cli and API convert it into hex text while displaying it for me.</li>
+            <li>An input spends a previous output. That previous output held the funds, and it has some spending conditions, which the spender has to pass to spend its funds. The input doesn't contain the amount it spent. It only has a reference to the previous output, which has the amount it spent.</li>
+            <li>When I downloaded Bitcoin Core, it also provided me with an API called JSON-RPC. Basically, I can send a JSON request to my local Bitcoin Core, and it runs it and will return a response.</li>
+          </ul>
+        </section>
+
+        <section class="post-section" aria-labelledby="plan">
+          <h2 class="subtitle" id="plan">Plan (before coding):</h2>
+          <ol>
+            <li>We are given the transaction ID, and the block height.</li>
+            <li>From the block height, we get the block hash from our local pruned node itself.</li>
+            <li>Our pruned node doesn't have access to transactions in the old block.</li>
+            <li>So, we call getpeerinfo, which lists peers already connected to our node. We are looking for a peer that has NETWORK as the service name, because it means it can supply historical blocks.</li>
+            <li>Once we find a peer, we request the block from one of those peers.</li>
+            <li>Once we receive the block, we get the chosen transaction from this block.</li>
+            <li>We read the transaction’s raw bytes from the block stored locally. The command displayed those bytes as hex text.</li>
+            <li>We decode the transaction’s hex text into bytes.</li>
+            <li>From this transaction, we also get all the inputs it accessed to make this transaction.</li>
+            <li>For this exercise, we choose one input which has the most funds.</li>
+            <li>So, first, for each of the 11 referenced outputs, we need to get the previous transactions containing these 11 referenced outputs. (We will use the explorer only to find the block hash of each of the 11. The transaction bytes would still come from the peer.)</li>
+            <li>We fetch any missing blocks from peers. We extract the previous transactions containing the 11 referenced outputs.</li>
+            <li>For each input, we use its previous transaction ID and output index to find the exact output. We read that output’s amount. We compare the 11 amounts and choose the largest referenced output.</li>
+            <li>For the largest output, we get the spending conditions for it.</li>
+            <li>For the largest output, we find the input in the main transaction that referenced it.</li>
+            <li>From that input, we get the signature and public key it provided to spend the previous output.</li>
+            <li>So, now we have the spending conditions for the previous output, and the signature and public key from the newer input.</li>
+            <li>We check that the public key satisfies the relevant condition in the previous output.</li>
+            <li>We construct the exact message hash for the chosen input’s signature.</li>
+            <li>We verify the signature using that public key and message hash.</li>
+          </ol>
+        </section>
+
+        <section class="post-section" aria-labelledby="code">
+          <h2 class="subtitle" id="code">Code:</h2>
+          <p><a href="https://github.com/arjunrajkumar/exploring-bitcoin/tree/main/projects/transaction-signature-verification" target="_blank" rel="noopener noreferrer">Github</a></p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

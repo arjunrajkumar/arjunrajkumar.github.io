@@ -46,7 +46,8 @@ a:visited {
   font-weight: 700;
 }
 
-.home-page > .subtitle {
+.home-page > .subtitle,
+.post-section > .subtitle {
   margin: 0 0 0.75rem;
 }
 
@@ -67,7 +68,9 @@ a:visited {
   font-size: 0.875rem;
 }
 
-.home-page > ul {
+.home-page > ul,
+.post-section > ul,
+.post-section > ol {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -76,7 +79,9 @@ a:visited {
   margin-top: 2rem;
 }
 
-.home-page > ul > li + li {
+.home-page > ul > li + li,
+.post-section > ul > li + li,
+.post-section > ol > li + li {
   margin-top: 0.5rem;
 }
 
