@@ -56,7 +56,7 @@
           <h2 class="subtitle" id="learnings">What I learnt</h2>
           <ul>
             <li>The blockchain is a database, but it's not like a normal DB. Instead, it's more like a snapshot to verify that things existed in a state on a previous date. For example, there is no simple query to find which block a transaction exists on! There is no direct lookup that a node can perform. So, Bitcoin Core creates two databases, a UTXO DB (outputs that have not been spent), and an optional transaction index DB. Because I'm running a pruned node, I don't have the transaction index DB.</li>
-            <li>Because of the pruned node, I have to request any transaction, blocks, etc. from peers who are running a full node. But I still can't request a transaction from a peer without a block hash.</li>
+            <li>Because of the pruned node, I have to request any transaction, blocks, etc. from peers who are running a full archival node. But I still can't request a transaction from a peer without a block hash.</li>
             <li>Everything in the blockchain is stored in bytes. The bitcoin-cli and API convert it into hex text while displaying it for me.</li>
             <li>An input spends a previous output. That previous output held the funds, and it has some spending conditions, which the spender has to pass to spend its funds. The input doesn't contain the amount it spent. It only has a reference to the previous output, which has the amount it spent.</li>
             <li>When I downloaded Bitcoin Core, it also provided me with an API called JSON-RPC. Basically, I can send a JSON request to my local Bitcoin Core, and it runs it and will return a response.</li>
