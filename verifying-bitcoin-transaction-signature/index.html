@@ -99,7 +99,7 @@
                 </div>
               </div>
             </li>
-            <li>After the 80-byte block header, the next bytes represent the transactions count, which tells us how many transactions are included in the block. But the transaction count uses CompactSize which is not fixed. Basically, if the first byte falls between 00-'fc', then it means read only the 81st byte. If the first byte is 'fd', then read the next 2 bytes (82nd and 83rd), for 'fe' read next 4 bytes, for 'ff' read next 8 bytes. Or if it's easier to think in integers.. 0-252 is first.. then 253, 254 and 255 are the markers.</li>
+            <li>After the 80-byte block header, the next bytes represent the transaction count, which tells us how many transactions are included in the block. But the transaction count uses CompactSize which is not fixed. Basically, if the first byte falls between 00-'fc', then it means read only the 81st byte. If the first byte is 'fd', then read the next 2 bytes (82nd and 83rd), for 'fe' read next 4 bytes, for 'ff' read next 8 bytes. Or if it's easier to think in integers.. 0-252 is first.. then 253, 254 and 255 are the markers.</li>
           </ul>
         </section>
       </article>
