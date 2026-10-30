@@ -26,18 +26,17 @@
           <ol>
             <li>We are given the transaction ID, and the block height.</li>
             <li>From the block height, we get the block hash from our local pruned node itself.</li>
-            <li>Our pruned node doesn't have access to transactions in the old block.</li>
-            <li>So, we call getpeerinfo, which lists peers already connected to our node. We are looking for a peer that has NETWORK as the service name, because it means it can supply historical blocks.</li>
+            <li>Our pruned node doesn't have access to transactions in the old block. So, we call getpeerinfo, which lists peers already connected to our node. We are looking for a peer that has NETWORK as the service name, because it means it can supply historical blocks.</li>
             <li>Once we find a peer, we request the block from one of those peers.</li>
             <li>Once we receive the block, we get the chosen transaction from this block.</li>
             <li>We read the transaction’s raw bytes from the block stored locally. The command displayed those bytes as hex text.</li>
             <li>We decode the transaction’s hex text into bytes.</li>
-            <li>From this transaction, we also get all the inputs it accessed to make this transaction.</li>
-            <li>For this exercise, we choose one input which has the most funds.</li>
-            <li>So, first, for each of the 11 referenced outputs, we need to get the previous transactions containing these 11 referenced outputs. (We will use the explorer only to find the block hash of each of the 11. The transaction bytes would still come from the peer.)</li>
-            <li>We fetch any missing blocks from peers. We extract the previous transactions containing the 11 referenced outputs.</li>
-            <li>For each input, we use its previous transaction ID and output index to find the exact output. We read that output’s amount. We compare the 11 amounts and choose the largest referenced output.</li>
-            <li>For the largest output, we get the spending conditions for it.</li>
+            <li>From this transaction, we also get all the <del>inputs it accessed to make this transaction</del> transaction inputs.</li>
+            <li>For this exercise, we will choose one transaction input which has the most funds.</li>
+            <li>So, first, for each of this transactions inputs, <del>we need to get the previous transactions which approved spending these inputs</del> we look at the previous_output (outpoint), which contains the previous transaction id and the output index. (We will use the explorer only to find the block hash of each of the tx input. The transaction bytes would still come from the peer.)</li>
+            <li>We fetch any missing blocks from peers for these previous transactions.</li>
+            <li><del>For each input, we use its previous transaction ID and output index to find the exact output.</del> We decode the blocks which contains the previous transactions, and for each of the transactions, we look into the outputs of each one, and get the value (output amount) in Satoshis. We read that output’s amount. We compare the 11 amounts and choose the largest referenced output.</li>
+            <li>For the largest output, we get the <del>spending conditions</del> pk_script which defines the spending conditions.</li>
             <li>For the largest output, we find the input in the main transaction that referenced it.</li>
             <li>From that input, we get the signature and public key it provided to spend the previous output.</li>
             <li>So, now we have the spending conditions for the previous output, and the signature and public key from the newer input.</li>
