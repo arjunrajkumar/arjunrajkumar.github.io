@@ -41,8 +41,42 @@
   hyphens: none;
 }
 
+.byte-example {
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid #e5e5e5;
+  background: #f8f8f8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  line-height: 1.5;
+}
+
+.byte-example-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16rem;
+  align-items: end;
+  gap: 1rem;
+}
+
+.byte-example-row + .byte-example-row {
+  margin-top: 1rem;
+}
+
+.byte-example code {
+  font: inherit;
+  overflow-wrap: anywhere;
+}
+
+.byte-example-label::before {
+  content: "... ";
+}
+
 @media (max-width: 700px) {
   .post-header {
     padding-bottom: 24px;
+  }
+
+  .byte-example-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
   }
 }

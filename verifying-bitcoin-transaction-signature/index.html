@@ -6,7 +6,7 @@
     <meta name="description" content="Verifying a Bitcoin transaction signature (Python)">
     <title>Verifying a Bitcoin transaction signature (Python) — Arjun Rajkumar</title>
     <link rel="stylesheet" href="../styles.css?v=13">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
   </head>
   <body>
     <main class="post-page">
@@ -57,10 +57,48 @@
           <ul>
             <li>The blockchain is a database, but it's not like a normal DB. Instead, it's more like a snapshot to verify that things existed in a state on a previous date. For example, there is no simple query to find which block a transaction exists on! There is no direct lookup that a node can perform. So, Bitcoin Core creates two databases, a UTXO DB (outputs that have not been spent), and an optional transaction index DB. Because I'm running a pruned node, I don't have the transaction index DB.</li>
             <li>Because of the pruned node, I have to request any transaction, blocks, etc. from peers who are running a full archival node. But I still can't request a transaction from a peer without a block hash.</li>
-            <li>Everything in the blockchain is stored in bytes. The bitcoin-cli and API convert it into hex text while displaying it for me.</li>
+            <li>Everything in the blockchain is stored in bytes. The bitcoin-cli and API convert it into hex text while displaying it for me.
+              <div class="byte-example">
+                <div class="byte-example-row">
+                  <code>00000000000005c6aca89f188819553e63fe1d5deeea9722b43d1cd0974c7d58</code>
+                  <span class="byte-example-label">Block in hex</span>
+                </div>
+                <div class="byte-example-row">
+                  <code>01 00 00 00 f6 05 25 43 53 a7 6d 40 6d 62 8a 86 45 f7 5a 4b f6 48 64 61 c8 1e 76 b7 60 02 00 00 00 00 00 00 4f c5 cd ab 3d 9d 02 e4 bc 62 0a b7 97 80 9c 88 95 d7 6e 5b 9a 54 8c a9 8d f2 86 00 ec 8c 5f 98 23 d5 6c 4e e3 6f 09 1a 23 d7 3f e4</code>
+                  <span class="byte-example-label">block in bytes</span>
+                </div>
+              </div>
+            </li>
             <li>In a transaction, an input spends a previous output. That previous output held the funds, and it has some spending conditions, which the spender has to pass to spend its funds. The input doesn't contain the amount it spent. It only has a reference to the previous output, which has the amount it spent.</li>
             <li>When I downloaded Bitcoin Core, it also provided me with an API called JSON-RPC. Basically, I can send a JSON request to my local Bitcoin Core, and it runs it and will return a response.</li>
-            <li>Each block has a block header (80 bytes), which consists of the version (4 bytes), previous block header hash (32 bytes), merkle root hash (32 bytes), time (4 bytes), nBits (4 bytes), and nonce (4 bytes).</li>
+            <li>Each block has a block header (80 bytes), which consists of the version (4 bytes), previous block header hash (32 bytes), merkle root hash (32 bytes), time (4 bytes), nBits (4 bytes), and nonce (4 bytes).
+              <div class="byte-example">
+                <div class="byte-example-row">
+                  <code>01 00 00 00</code>
+                  <span class="byte-example-label">version (4 bytes)</span>
+                </div>
+                <div class="byte-example-row">
+                  <code>f6 05 25 43 53 a7 6d 40 6d 62 8a 86 45 f7 5a 4b f6 48 64 61 c8 1e 76 b7 60 02 00 00 00 00 00 00</code>
+                  <span class="byte-example-label">previous block header hash (32 bytes)</span>
+                </div>
+                <div class="byte-example-row">
+                  <code>4f c5 cd ab 3d 9d 02 e4 bc 62 0a b7 97 80 9c 88 95 d7 6e 5b 9a 54 8c a9 8d f2 86 00 ec 8c 5f 98</code>
+                  <span class="byte-example-label">merkle root hash (32 bytes)</span>
+                </div>
+                <div class="byte-example-row">
+                  <code>23 d5 6c 4e</code>
+                  <span class="byte-example-label">time (4 bytes)</span>
+                </div>
+                <div class="byte-example-row">
+                  <code>e3 6f 09 1a</code>
+                  <span class="byte-example-label">nBits (4 bytes)</span>
+                </div>
+                <div class="byte-example-row">
+                  <code>23 d7 3f e4</code>
+                  <span class="byte-example-label">nonce (4 bytes)</span>
+                </div>
+              </div>
+            </li>
           </ul>
         </section>
       </article>
