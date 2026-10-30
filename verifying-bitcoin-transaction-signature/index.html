@@ -19,22 +19,11 @@
         <div class="post-section">
           <p>The goal by the end of this is for me to verify the transaction myself for a confirmed transaction.</p>
           <p>I have chosen this transaction: <a class="transaction-id" href="https://mempool.space/tx/29a3efd3ef04f9153d47a990bd7b048a4b2d213daaa5fb8ed670fb85f13bdbcf" target="_blank" rel="noopener noreferrer">29a3efd3ef04f9153d47a990bd7b048a4b2d213daaa5fb8ed670fb85f13bdbcf</a></p>
-          <p>This transaction was confirmed in block 153509 on 16 November 2011. It has 11 inputs and two outputs: 50,000 BTC and 500,000 BTC. From these 11 inputs, I will find the highest value input, then check the output related to that, and verify the spend manually via Python.</p>
+          <p>This transaction was confirmed in block 153509 on 16 November 2011. It has 11 inputs and two outputs: 50,000 BTC and 500,000 BTC. From these 11 inputs, I will find the highest value input, then check the output related to that, and verify the spend manually via Python. I am not using Bitcoin libraries such as python-bitcoinlib to interact with Bitcoin Core. The goal is to do it myself and learn.</p>
         </div>
 
-        <section class="post-section" aria-labelledby="learnings">
-          <h2 class="subtitle" id="learnings">Learnings:</h2>
-          <ul>
-            <li>The blockchain is a database, but it's not like a normal DB. Instead, it's more like a snapshot to verify that things existed in a state on a previous date. For example, there is no simple query to find which block a transaction exists on! There is no direct lookup that a node can perform. So, Bitcoin Core creates two databases, a UTXO DB (outputs that have not been spent), and an optional transaction index DB. Because I'm running a pruned node, I don't have the transaction index DB.</li>
-            <li>Because of the pruned node, I have to request any transaction, blocks, etc. from peers who are running a full node. But I still can't request a transaction from a peer without a block hash.</li>
-            <li>Everything in the blockchain is stored in bytes. The bitcoin-cli and API convert it into hex text while displaying it for me.</li>
-            <li>An input spends a previous output. That previous output held the funds, and it has some spending conditions, which the spender has to pass to spend its funds. The input doesn't contain the amount it spent. It only has a reference to the previous output, which has the amount it spent.</li>
-            <li>When I downloaded Bitcoin Core, it also provided me with an API called JSON-RPC. Basically, I can send a JSON request to my local Bitcoin Core, and it runs it and will return a response.</li>
-          </ul>
-        </section>
-
         <section class="post-section" aria-labelledby="plan">
-          <h2 class="subtitle" id="plan">Plan (before coding):</h2>
+          <h2 class="subtitle" id="plan">My plan (without AI, before coding)</h2>
           <ol>
             <li>We are given the transaction ID, and the block height.</li>
             <li>From the block height, we get the block hash from our local pruned node itself.</li>
@@ -60,8 +49,19 @@
         </section>
 
         <section class="post-section" aria-labelledby="code">
-          <h2 class="subtitle" id="code">Code:</h2>
+          <h2 class="subtitle" id="code">Coding (with AI help)</h2>
           <p><a href="https://github.com/arjunrajkumar/exploring-bitcoin/tree/main/projects/transaction-signature-verification" target="_blank" rel="noopener noreferrer">Github</a></p>
+        </section>
+
+        <section class="post-section" aria-labelledby="learnings">
+          <h2 class="subtitle" id="learnings">What I learnt</h2>
+          <ul>
+            <li>The blockchain is a database, but it's not like a normal DB. Instead, it's more like a snapshot to verify that things existed in a state on a previous date. For example, there is no simple query to find which block a transaction exists on! There is no direct lookup that a node can perform. So, Bitcoin Core creates two databases, a UTXO DB (outputs that have not been spent), and an optional transaction index DB. Because I'm running a pruned node, I don't have the transaction index DB.</li>
+            <li>Because of the pruned node, I have to request any transaction, blocks, etc. from peers who are running a full node. But I still can't request a transaction from a peer without a block hash.</li>
+            <li>Everything in the blockchain is stored in bytes. The bitcoin-cli and API convert it into hex text while displaying it for me.</li>
+            <li>An input spends a previous output. That previous output held the funds, and it has some spending conditions, which the spender has to pass to spend its funds. The input doesn't contain the amount it spent. It only has a reference to the previous output, which has the amount it spent.</li>
+            <li>When I downloaded Bitcoin Core, it also provided me with an API called JSON-RPC. Basically, I can send a JSON request to my local Bitcoin Core, and it runs it and will return a response.</li>
+          </ul>
         </section>
       </article>
     </main>

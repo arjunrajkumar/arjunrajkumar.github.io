@@ -27,10 +27,10 @@
 ## Signature verification post
 
 - Keep the original wording, numbers, and technical claims unless a change is approved.
-- Begin with the introductory text without a “Goal” heading. Then show Learnings, Plan (before coding), and Code in full.
+- Begin with the introductory text without a “Goal” heading. Then show My plan (without AI, before coding), Coding (with AI help), and What I learnt in full.
 - Follow the homepage's plain text layout. Do not add boxes, arrows, tabs, expandable sections, or a row of section links.
 - Reuse the shared homepage heading and list rules in `styles.css`. Keep section headings in normal case at 1.15em and content at 16px.
-- Use the same solid bullet markers and 0.5rem item spacing as the homepage for Learnings. Keep the plan numbered to show its order.
+- Use the same solid bullet markers and 0.5rem item spacing as the homepage for What I learnt. Keep the plan numbered to show its order.
 - Keep paragraphs at the full reading width without extra panel padding.
 - Disable automatic word hyphenation on text posts. Let the transaction ID wrap as needed, without cutting off text or adding horizontal scrolling.
 - Do not add a work-in-progress label or rename the code link without approval.
