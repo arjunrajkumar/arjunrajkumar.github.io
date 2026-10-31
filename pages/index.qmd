@@ -1,0 +1,34 @@
+---
+pagetitle: Arjun Rajkumar
+description: Arjun Rajkumar. Currently exploring Bitcoin. Previously a Ruby on Rails software developer.
+format:
+  html:
+    template: ../_quarto/home.html
+---
+
+# Arjun Rajkumar
+
+<div class="bitcoin-intro">
+<h2 class="subtitle">Currently exploring Bitcoin</h2>
+<p class="learning-progress">(52 hours down the Bitcoin rabbit hole)</p>
+</div>
+
+- Verifying a <a href="verifying-bitcoin-transaction-signature/">Bitcoin transaction signature (Python)</a>
+- The first Bitcoin <a href="first_bitcoin_payment/">payment transaction</a>
+
+<h2 class="subtitle">Previous work with Ruby on Rails:</h2>
+
+- One of two early Rails developers on the core team building <a href="https://www.linkedin.com/company/lummo-official/about/" rel="noopener noreferrer" target="_blank">Lummo</a>’s backend and APIs using Rails and GraphQL. The app reached 2 million monthly active users.
+- Built a shared Rails engine and added automated tests for <a href="https://www.forsbergplustwo.com/" rel="noopener noreferrer" target="_blank">Forsberg+two</a> apps, covering subscriptions, document generation, and merchant workflows.
+- Built and grew B2B SaaS apps used by 1,000+ businesses each month for inventory management, bulk image processing, and SEO. Later <a href="https://x.com/arjun_builds/status/1715144917595693159" rel="noopener noreferrer" target="_blank">sold</a> one SaaS product and managed its technical handover.
+
+<h2 class="subtitle">Writing &amp; code:</h2>
+
+- <a href="https://medium.com/@ArjunRajkumar/keeping-my-ruby-class-methods-small-and-focussed-d76d69c23ddc" rel="noopener noreferrer" target="_blank">Keeping Ruby methods small and focused</a> — September 2022
+- <a href="https://www.youtube.com/watch?v=jy0jLrEWPqA" rel="noopener noreferrer" target="_blank">Code walkthrough: a Rails + Hotwire Shopify app</a> — March 2022 · Video
+- <a href="https://gist.github.com/arjunrajkumar/177dea0b1e0e6092ac806772512641ab" rel="noopener noreferrer" target="_blank">Notes from Chris Oliver’s Ruby metaprogramming course</a> — November 2020
+- <a href="https://gist.github.com/arjunrajkumar/0640c8f576e5a4b950d62c2738849272" rel="noopener noreferrer" target="_blank">Lessons from nine months at a startup</a> — November 2020
+- <a href="https://dev.to/arjunrajkumar/building-a-shopify-app-with-rails-react-and-graphql-3651" rel="noopener noreferrer" target="_blank">Building a Shopify app with Rails, React and GraphQL</a> — June 2020
+- <a href="https://dev.to/arjunrajkumar/integration-unit-tests-with-tdd-in-rails-3230" rel="noopener noreferrer" target="_blank">Integration &amp; unit tests with TDD in Rails</a> — January 2020
+- <a href="https://medium.com/@ArjunRajkumar/using-shape-up-to-build-a-shopify-app-bf913408af9" rel="noopener noreferrer" target="_blank">Using Shape Up to build a Shopify app</a> — October 2019
+- <a href="https://medium.com/@ArjunRajkumar/getting-computers-to-see-better-than-humans-346d96634f73" rel="noopener noreferrer" target="_blank">Building a dog-breed classifier with deep learning</a> — November 2017

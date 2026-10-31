@@ -1,0 +1,29 @@
+project:
+  type: default
+  output-dir: _site
+  render:
+    - pages/index.qmd
+    - notebooks/verifying-bitcoin-transaction-signature/index.ipynb
+  post-render:
+    - python3 scripts/prepare_site.py
+  resources:
+    - .nojekyll
+    - styles.css
+    - assets/**
+    - first_bitcoin_payment/**
+    - shopify-apps/**
+    - verifying-bitcoin-transaction-signature/style.css
+
+format:
+  html:
+    theme: none
+    minimal: true
+    toc: false
+    anchor-sections: false
+    section-divs: false
+    code-copy: false
+    code-overflow: wrap
+
+from: markdown-smart-markdown_in_html_blocks
+execute:
+  enabled: false

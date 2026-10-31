@@ -1,0 +1,5 @@
+format:
+  html:
+    template: ../_quarto/article.html
+filters:
+  - ../_quarto/article-lists.lua

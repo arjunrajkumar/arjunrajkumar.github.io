@@ -1,0 +1,2 @@
+quarto-cli==1.10.20
+jupyterlab==4.6.5

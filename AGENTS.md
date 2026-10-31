@@ -9,7 +9,7 @@
 
 ## Design references
 
-- Read `styles.css`, `index.html`, and `first_bitcoin_payment/style.css` before changing the design.
+- Read `styles.css`, `pages/index.qmd`, `_quarto/home.html`, and `first_bitcoin_payment/style.css` before changing the design.
 - Use the homepage and `first_bitcoin_payment/` as the design references for new pages.
 - Keep the same Open Sans font, white background, text colour, link colours, and simple layout.
 - Reuse `styles.css` for shared typography and colours. Add page-specific CSS only where needed.
@@ -38,6 +38,11 @@
 
 ## Editing and publishing
 
+- Edit the home page in `pages/index.qmd` and the signature article in `notebooks/verifying-bitcoin-transaction-signature/index.ipynb`.
+- Quarto builds into `_site/`. Do not edit or commit generated HTML.
+- The first Bitcoin payment article remains in `first_bitcoin_payment/` and is copied without changes.
+- Pushes to `main` run `.github/workflows/publish.yml` to build and publish GitHub Pages.
+- Use saved notebook outputs. Do not run learning code during publication.
 - Check Git status before edits and preserve existing work.
 - Keep drafts local while Arjun is reviewing them. Commit and publish when he asks.
 - Check the page in the browser after changes. Check section order, visible text, and links.
