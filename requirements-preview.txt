@@ -1,2 +1,4 @@
 quarto-cli==1.10.20
 jupyterlab==4.6.5
+nbdime==4.0.4
+psutil==7.2.2

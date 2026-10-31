@@ -17,6 +17,34 @@ The sources have separate folders because Quarto writes temporary HTML beside th
 `scripts/prepare_site.py` copies the generated pages to their existing URLs inside `_site/`.
 Edit the source files, not the generated HTML. The earlier HTML versions remain in Git history.
 
+## Start everything
+
+In a new chat, say `start`. The workflow in `AGENTS.md` sets up the tools,
+starts or reuses both local servers, and opens the problem notebook.
+
+To do this yourself, run the following from the website repository:
+
+```sh
+python3.13 scripts/start_workspace.py
+```
+
+This also works on a new computer once Git, Python 3.13, and this Git clone are present.
+The script creates the local environment and installs missing tools.
+It opens JupyterLab with its login token handled and checks that nbdime is available.
+It does not execute notebook cells or publish anything.
+
+The default notebook is the transaction signature article. To choose another notebook,
+pass its path after the script name. The actual server URLs and process IDs are recorded
+in `.venv/workspace/state.json`. Logs are stored in the same ignored folder.
+
+Jupyter and Quarto run in the background. Closing a browser tab does not stop them.
+To stop Jupyter, save your work and use `.venv/bin/jupyter server stop 8889`,
+using the actual port from the state file if it differs. Stop the recorded Quarto
+preview process when you no longer need the preview.
+
+In JupyterLab, save the notebook and click **Notebook Git diff** to compare it
+with the last Git commit. This does not commit or publish changes.
+
 ## Open the preview
 
 From this repository, activate the local Python environment:
