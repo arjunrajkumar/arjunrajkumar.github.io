@@ -96,6 +96,10 @@ and [nbdime](https://nbdime.readthedocs.io/en/latest/extensions.html).
 - Keep the same Open Sans font, white background, text colour, link colours, and simple layout.
 - Reuse `styles.css` for shared typography and colours. Add page-specific CSS only where needed.
 - Do not introduce a separate visual style for each new post.
+- Use the shared notebook cell styles in `styles.css` for all notebook posts.
+  Follow [Jake VanderPlas's notebook layout](https://jakevdp.github.io/blog/2018/09/13/waiting-time-paradox/#Simulating-Wait-Times):
+  light grey bordered code, blue `In [n]:` prompts, plain output, and red `Out[n]:` prompts for expression results.
+  Use saved execution counts. Printed text and figures do not need an `Out` prompt.
 - Use 16px body text with a 1.4 line height.
 - Match article titles to the “Satoshi sends Hal Finney 10 bitcoins” heading: 1.15em, bold, line height 1.4, and zero margin.
 - Use 1.15em bold section headings. Use 16px paragraph spacing, 0.5rem between list items, and 2rem between major sections.
@@ -110,7 +114,7 @@ and [nbdime](https://nbdime.readthedocs.io/en/latest/extensions.html).
 
 - Keep the original wording, numbers, and technical claims unless a change is approved.
 - Begin with the introductory text without a “Goal” heading. Then show My plan (without AI, before coding), Coding (with AI help), and What I learnt in full.
-- Follow the homepage's plain text layout. Use grey backgrounds for the byte examples in What I learnt, with byte values before explanatory labels. Do not add other boxes, arrows, tabs, expandable sections, or a row of section links.
+- Follow the homepage's plain text layout. Use grey backgrounds for the byte examples in What I learnt, with byte values before explanatory labels. Use the shared notebook style for code cells. Do not add other boxes, arrows, tabs, expandable sections, or a row of section links.
 - Reuse the shared homepage heading and list rules in `styles.css`. Keep section headings in normal case at 1.15em and content at 16px.
 - Use the same solid bullet markers and 0.5rem item spacing as the homepage for What I learnt. Keep the plan numbered to show its order.
 - Keep paragraphs at the full reading width without extra panel padding.
