@@ -102,17 +102,6 @@ a:visited {
   color: #000;
 }
 
-.story {
-  margin: 2em 0;
-}
-
-.story img {
-  display: block;
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-}
-
 @media screen and (max-width: 500px) {
   body {
     text-align: left;

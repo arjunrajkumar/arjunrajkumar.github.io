@@ -1,10 +1,6 @@
 .venv/
-.quarto/
-_preview/
+/.quarto/
 _site/
 **/.ipynb_checkpoints/
 __pycache__/
-
 **/*.quarto_ipynb
-
-/.quarto/

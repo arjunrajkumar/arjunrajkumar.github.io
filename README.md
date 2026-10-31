@@ -12,7 +12,7 @@ You can add Python cells in JupyterLab when you are ready.
 
 Quarto uses the existing `styles.css` and article `style.css`.
 The templates in `_quarto/home.html` and `_quarto/article.html` keep the existing layouts.
-The first Bitcoin payment article and other pages are copied without changes so their links work.
+The first Bitcoin payment article and its files are copied without changes.
 The sources have separate folders because Quarto writes temporary HTML beside them.
 `scripts/prepare_site.py` copies the generated pages to their existing URLs inside `_site/`.
 Edit the source files, not the generated HTML. The earlier HTML versions remain in Git history.
@@ -51,7 +51,7 @@ jupyter lab notebooks/verifying-bitcoin-transaction-signature/index.ipynb
 Double-click a text cell to edit it. Press `Shift+Enter` to show the formatted text.
 Save the notebook to update the Quarto preview.
 
-Run any Python cells in JupyterLab before saving. This trial uses saved outputs.
+Run any Python cells in JupyterLab before saving. The build uses saved outputs.
 Quarto does not run notebook code during a local or published build (`execute.enabled: false`).
 
 ## Build without a server
@@ -75,7 +75,7 @@ Quarto copies that article and its files without changes.
 
 ## Recreate the tools
 
-The trial uses Python 3.13. From this repository:
+The tools use Python 3.13. From this repository:
 
 ```sh
 python3.13 -m venv .venv
