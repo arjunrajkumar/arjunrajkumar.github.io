@@ -10,7 +10,7 @@ format:
 
 <div class="bitcoin-intro">
 <h2 class="subtitle">Currently exploring Bitcoin</h2>
-<p class="learning-progress">(52 hours down the Bitcoin rabbit hole)</p>
+<p class="learning-progress">(63 hours down the Bitcoin rabbit hole)</p>
 </div>
 
 - Verifying a <a href="verifying-bitcoin-transaction-signature/">Bitcoin transaction signature (Python)</a>
