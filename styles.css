@@ -102,6 +102,92 @@ a:visited {
   color: #000;
 }
 
+/* Quarto notebook cells: keep code and saved results easy to distinguish. */
+.post-page .cell {
+  margin: 1.5rem 0;
+  min-width: 0;
+}
+
+.post-page .cell-code,
+.post-page .cell-output {
+  padding: 0.875rem 1rem;
+  border: 1px solid #d7e6ed;
+  border-left: 3px solid #0077aa;
+  border-radius: 4px;
+  background: #f3f8fb;
+}
+
+.post-page .cell-output {
+  margin-top: 0.5rem;
+  border-color: #dbe7df;
+  border-left-color: #3b6b55;
+  background: #f5f8f5;
+  overflow-wrap: anywhere;
+}
+
+.post-page .cell-code::before,
+.post-page .cell-output::before {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.post-page .cell-code::before {
+  content: "Code";
+  color: #00638d;
+}
+
+.post-page .cell-output::before {
+  content: "Result";
+  color: #365e49;
+}
+
+.post-page .cell pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #454545;
+  font: 0.9375rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.post-page .cell pre code {
+  font: inherit;
+}
+
+.post-page .cell-code .kw,
+.post-page .cell-code .cf,
+.post-page .cell-code .bu {
+  color: #00638d;
+}
+
+.post-page .cell-code .st,
+.post-page .cell-code .ch {
+  color: #941352;
+}
+
+.post-page .cell-code .co {
+  color: #626c77;
+  font-style: italic;
+}
+
+.post-page .cell-output > :last-child {
+  margin-bottom: 0;
+}
+
+.post-page .cell-output img,
+.post-page .cell-output svg {
+  max-width: 100%;
+  height: auto;
+}
+
 @media screen and (max-width: 500px) {
   body {
     text-align: left;
