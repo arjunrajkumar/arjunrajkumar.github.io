@@ -130,7 +130,10 @@ and [nbdime](https://nbdime.readthedocs.io/en/latest/extensions.html).
 - Pushes to `main` run `.github/workflows/publish.yml` to build and publish GitHub Pages.
 - Use saved notebook outputs. Do not run learning code during publication.
 - Check Git status before edits and preserve existing work.
-- Keep drafts local while Arjun is reviewing them. Commit and publish when he asks.
+- In checkouts where Arjun enabled publish on save, a Jupyter save (including autosave)
+  of a tracked notebook post in the committed render list authorizes the workspace helper
+  to commit and push that post. Reuse the helper on workspace startup.
+- Keep unlisted draft notebooks local. Publish other changes when Arjun asks.
 - Check the page in the browser after changes. Check section order, visible text, and links.
 - Check that long transaction IDs wrap without causing horizontal scrolling.
 - Keep the original article text intact when moving sections or changing markup.

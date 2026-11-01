@@ -31,7 +31,7 @@ python3.13 scripts/start_workspace.py
 This also works on a new computer once Git, Python 3.13, and this Git clone are present.
 The script creates the local environment and installs missing tools.
 It opens JupyterLab with its login token handled and checks that nbdime is available.
-It does not execute notebook cells or publish anything.
+On checkouts with publish on save enabled, it reconnects the publisher and retries queued saves.
 
 The default notebook is the transaction signature article. To choose another notebook,
 pass its path after the script name. The actual server URLs and process IDs are recorded
@@ -42,8 +42,7 @@ To stop Jupyter, save your work and use `.venv/bin/jupyter server stop 8889`,
 using the actual port from the state file if it differs. Stop the recorded Quarto
 preview process when you no longer need the preview.
 
-In JupyterLab, save the notebook and click **Notebook Git diff** to compare it
-with the last Git commit. This does not commit or publish changes.
+In JupyterLab, click **Notebook Git diff** to compare the notebook with the last Git commit.
 
 ## Open the preview
 
@@ -92,7 +91,28 @@ Generated pages go into `_site/`. Git ignores this folder and the local tools.
 
 ## Publish
 
-Preview and check your changes locally. Commit the source files and push to `main`.
+To enable publishing from Jupyter on a new checkout, run this once:
+
+```sh
+python3.13 scripts/start_workspace.py --publish-on-save --no-browser
+```
+
+Open a published post in JupyterLab. Edit it and press **Cmd + S**. Jupyter autosaves
+also count. The workspace listens for successful saves and commits the changed notebook
+on `main`. It pushes that commit to GitHub. The site builds from the saved outputs.
+Future workspace starts reconnect the publisher automatically.
+
+This applies to tracked `notebooks/<post>/index.ipynb` files listed in the committed
+`project.render` section of `_quarto.yml`. A new post needs its notebook, render entry,
+URL mapping, and homepage link committed and pushed together once.
+The playground and homepage use the manual Git workflow.
+
+To pause automatic publication, run `touch .venv/workspace/pause-publishing`.
+To resume, run `rm .venv/workspace/pause-publishing` and save the post again.
+Use the publisher log under `.venv/workspace/publish-<Jupyter port>.log` to check a save.
+Changed saves wait locally if GitHub is unavailable. If local and remote branches differ,
+review `git status` and reconcile them. The helper retries the queued save.
+
 The `Publish Quarto site` workflow builds the site and publishes it to GitHub Pages.
 It uses the same pinned Quarto version as the local preview.
 Check the workflow result in the repository's Actions tab.

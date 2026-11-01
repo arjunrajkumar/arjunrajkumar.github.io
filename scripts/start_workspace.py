@@ -153,6 +153,30 @@ def check_notebook(server, notebook):
         raise RuntimeError("The notebook is not inside a Git repository; its Git diff would be unavailable.")
 
 
+def ensure_publisher(server, runtime_file):
+    import psutil
+
+    script = ROOT / "scripts" / "publish_on_save.py"
+    ready = LOG_DIR / "publish-ready.json"
+
+    def listening():
+        try:
+            state = json.loads(ready.read_text())
+            process = psutil.Process(state["pid"])
+            return (state["server_pid"] == server["pid"]
+                    and str(script) in process.cmdline()
+                    and str(runtime_file) in process.cmdline())
+        except (FileNotFoundError, ValueError, KeyError, psutil.Error):
+            return False
+
+    if not listening():
+        process, log = spawn(
+            [str(PYTHON), "-u", str(script), str(runtime_file)], "publish", server["port"],
+        )
+        wait_until(listening, process, log)
+    print("Publish on save is ready for registered notebook posts.")
+
+
 def responding(url):
     try:
         # Quarto can take several seconds to prepare a page on its first request.
@@ -204,6 +228,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("notebook", nargs="?", default=DEFAULT_NOTEBOOK)
     parser.add_argument("--no-browser", action="store_true", help="Let the chat agent open and verify the browser.")
+    parser.add_argument("--publish-on-save", action="store_true",
+                        help="Enable automatic publishing of registered notebook saves for this checkout.")
     args = parser.parse_args()
     os.chdir(ROOT)
     notebook_path = (ROOT / args.notebook).resolve()
@@ -220,12 +246,18 @@ def main():
     check_notebook(server, notebook)
     preview = ensure_preview(8765)
     notebook_url = server["url"] + "lab/tree/" + quote(notebook)
+    runtime_file = Path(jupyter_runtime_dir()) / f"jpserver-{server['pid']}.json"
+    LOG_DIR.mkdir(mode=0o700, parents=True, exist_ok=True)
+    enabled = LOG_DIR / "publish-enabled"
+    if args.publish_on_save:
+        enabled.touch()
+    if enabled.exists():
+        ensure_publisher(server, runtime_file)
     state = {
         "notebook_url": notebook_url, "preview_url": preview["url"],
         "jupyter_pid": server["pid"], "preview_pid": preview["pid"],
-        "jupyter_runtime_file": str(Path(jupyter_runtime_dir()) / f"jpserver-{server['pid']}.json"),
+        "jupyter_runtime_file": str(runtime_file),
     }
-    LOG_DIR.mkdir(mode=0o700, parents=True, exist_ok=True)
     fd = os.open(LOG_DIR / "state.json", os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
     with os.fdopen(fd, "w") as output:
         json.dump(state, output, indent=2)
