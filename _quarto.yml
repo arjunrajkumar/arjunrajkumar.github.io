@@ -4,7 +4,7 @@ project:
   render:
     - pages/index.qmd
     - notebooks/verifying-bitcoin-transaction-signature/index.ipynb
-    - notebooks/decoding-a-payment-transaction/index.ipynb
+    - notebooks/deconstructing-a-payment-transaction/index.ipynb
   post-render:
     - python3 scripts/prepare_site.py
   resources:
