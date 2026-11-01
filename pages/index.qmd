@@ -14,7 +14,7 @@ format:
 </div>
 
 - Verifying a [transaction signature](verifying-bitcoin-transaction-signature/)
-- Deconstructing a [payment transaction](decoding-a-payment-transaction/)
+- Deconstructing a [payment transaction](deconstructing-a-payment-transaction/)
 
 <h2 class="subtitle">Previous work with Ruby on Rails:</h2>
 
