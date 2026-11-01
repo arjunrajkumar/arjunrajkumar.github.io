@@ -8,6 +8,8 @@ pages = {
     "pages/index.html": "index.html",
     "notebooks/verifying-bitcoin-transaction-signature/index.html":
         "verifying-bitcoin-transaction-signature/index.html",
+    "notebooks/decoding-a-payment-transaction/index.html":
+        "decoding-a-payment-transaction/index.html",
 }
 for source, target in pages.items():
     rendered = site / source

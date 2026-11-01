@@ -13,8 +13,8 @@ format:
 <p class="learning-progress">(63 hours down the Bitcoin rabbit hole)</p>
 </div>
 
-- Verifying a <a href="verifying-bitcoin-transaction-signature/">Bitcoin transaction signature (Python)</a>
-- The first Bitcoin <a href="first_bitcoin_payment/">payment transaction</a>
+- Verifying a [transaction signature](verifying-bitcoin-transaction-signature/)
+- Deconstructing a [payment transaction](decoding-a-payment-transaction/)
 
 <h2 class="subtitle">Previous work with Ruby on Rails:</h2>
 

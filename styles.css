@@ -247,3 +247,87 @@ a:visited {
     --notebook-gutter: 4.5rem;
   }
 }
+
+
+/* Keep typography and spacing aligned with the home and first payment pages. */
+.post-page {
+  -webkit-hyphens: none;
+  hyphens: none;
+}
+
+.post-header {
+  padding-bottom: 30px;
+}
+
+.post-header .home-link {
+  display: block;
+  width: max-content;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.post-header h1 {
+  margin: 0;
+  font-size: 1.15em;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.post-section + .post-section {
+  margin-top: 2rem;
+}
+
+.post-page p {
+  margin: 0 0 1rem;
+}
+
+.post-section > :last-child {
+  margin-bottom: 0;
+}
+
+.transaction-id {
+  overflow-wrap: anywhere;
+  -webkit-hyphens: none;
+  hyphens: none;
+}
+
+.byte-example {
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid #e5e5e5;
+  background: #f8f8f8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  line-height: 1.5;
+}
+
+.byte-example-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16rem;
+  align-items: end;
+  gap: 1rem;
+}
+
+.byte-example-row + .byte-example-row {
+  margin-top: 1rem;
+}
+
+.byte-example code {
+  font: inherit;
+  overflow-wrap: anywhere;
+}
+
+.byte-example-label::before {
+  content: "... ";
+}
+
+@media (max-width: 700px) {
+  .post-header {
+    padding-bottom: 24px;
+  }
+
+  .byte-example-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+}

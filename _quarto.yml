@@ -4,14 +4,13 @@ project:
   render:
     - pages/index.qmd
     - notebooks/verifying-bitcoin-transaction-signature/index.ipynb
+    - notebooks/decoding-a-payment-transaction/index.ipynb
   post-render:
     - python3 scripts/prepare_site.py
   resources:
     - .nojekyll
     - styles.css
     - assets/**
-    - first_bitcoin_payment/**
-    - verifying-bitcoin-transaction-signature/style.css
 
 format:
   html:
