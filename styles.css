@@ -282,6 +282,26 @@ a:visited {
   margin: 0 0 1rem;
 }
 
+.post-section > table {
+  max-width: 100%;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.post-section > table :is(th, td) {
+  padding: 0.35rem 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.post-section > table thead {
+  border-bottom: 1px solid #bbb;
+}
+
+.post-section > table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
 .post-section > :last-child {
   margin-bottom: 0;
 }
