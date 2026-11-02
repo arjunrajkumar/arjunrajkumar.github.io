@@ -1,7 +1,5 @@
 # Website
 
-## AI reply
-
 Quarto builds the home page and the transaction signature article.
 GitHub Pages publishes the result at <https://arjunrajkumar.github.io/>.
 

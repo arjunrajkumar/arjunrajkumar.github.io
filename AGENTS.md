@@ -3,6 +3,7 @@
 ## Communication
 
 - Use short, direct sentences and common words.
+- Use headings that name the topic. Omit labels for the writer.
 - Use ASD-STE100 Simplified Technical English for reports and status messages.
 - Keep the author's supplied post text unchanged unless a change is approved.
 - Ask before correcting spelling, grammar, or technical claims in supplied text.
