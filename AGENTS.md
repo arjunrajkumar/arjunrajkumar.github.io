@@ -51,6 +51,46 @@ guide him one step at a time instead.
 - Setup does not require a Quarto or Jupyter account. GitHub login is needed only
   for repository operations that require authentication, such as pushing changes.
 
+### Start the Programming Bitcoin workbook
+
+When Arjun says `start Programming Bitcoin` or asks for Jimmy Song's workbook, open
+`notebooks/programmingbitcoin/index.ipynb`. It has 84 exercises in chapters 1–12
+and reading notes for chapters 13–14.
+
+1. Find the blog checkout. On a new laptop, clone
+   `https://github.com/arjunrajkumar/arjunrajkumar.github.io.git`. Use Git and
+   Python 3.13 as described above. Confirm Git has push access to both repositories.
+2. From the blog root, run the following command. On Windows, use `py -3.13`
+   if needed.
+
+   ```sh
+   python3.13 scripts/start_workspace.py --no-browser notebooks/programmingbitcoin/index.ipynb
+   ```
+
+3. Startup clones Arjun's public fork into a sibling `programmingbitcoin` folder
+   if needed. The fork is `https://github.com/arjunrajkumar/programmingbitcoin.git`.
+   The local `notebooks/programmingbitcoin/book` link opens its files in Jupyter.
+   Reuse an existing link to the verified fork. Preserve any local changes if
+   you find a checkout of the author's original repository. Set Arjun's fork
+   as `origin` and keep the original as `upstream` after checking both histories.
+4. Startup fetches the blog's `main` and the fork's `master`. It updates clean
+   checkouts that are only behind. If a branch has local changes or the notebook
+   is open when new commits arrive, inspect both copies before combining work.
+   Never force-push. If GitHub is unavailable, report that the copy is local.
+5. Startup enables publishing on each laptop for this workbook. A Jupyter save
+   or autosave sends the workbook to the blog. It sends saved Python files and
+   chapter notebooks under `book/code-ch01` through `book/code-ch13` to the fork.
+   The live workbook links to the fork. Keep private keys, passwords and private
+   wallet data out of saved cells, outputs and chapter files.
+6. Open and verify JupyterLab and the preview as described below. Confirm the
+   Chapter 1 link to `ecc.py` opens in Jupyter. Return to the workbook. Use
+   the blog's Python environment. Leave exercise cells for Arjun to run.
+7. Before switching laptops, save open files. Confirm local and remote branch
+   heads match in both repositories. If a push is queued, check the publisher log
+   in `.venv/workspace/`. Resolve a conflict with Arjun's work intact. For edits
+   made outside Jupyter in this workflow, review the diff, commit the requested
+   files and push them to the matching repository. Check the live workbook after publication.
+
 ### Start the servers and open the notebook
 
 - The script reuses servers for this checkout. Otherwise it starts JupyterLab on
@@ -133,6 +173,7 @@ and [nbdime](https://nbdime.readthedocs.io/en/latest/extensions.html).
 - In checkouts where Arjun enabled publish on save, a Jupyter save (including autosave)
   of a tracked notebook post in the committed render list authorizes the workspace helper
   to commit and push that post. Reuse the helper on workspace startup.
+  Programming Bitcoin chapter saves also go to Arjun's fork as described above.
 - Keep unlisted draft notebooks local. Publish other changes when Arjun asks.
 - Check the page in the browser after changes. Check section order, visible text, and links.
 - Check that long transaction IDs wrap without causing horizontal scrolling.

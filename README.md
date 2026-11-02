@@ -107,6 +107,11 @@ This applies to tracked `notebooks/<post>/index.ipynb` files listed in the commi
 URL mapping, and homepage link committed and pushed together once.
 The playground and homepage use the manual Git workflow.
 
+For Programming Bitcoin, run `python3.13 scripts/start_workspace.py notebooks/programmingbitcoin/index.ipynb`.
+It checks both repositories for updates and enables publishing on this laptop.
+Workbook saves update the [live workbook](https://arjunrajkumar.github.io/programmingbitcoin/).
+Jupyter saves for Python files and chapter notebooks update [Arjun's fork](https://github.com/arjunrajkumar/programmingbitcoin).
+
 To pause automatic publication, run `touch .venv/workspace/pause-publishing`.
 To resume, run `rm .venv/workspace/pause-publishing` and save the post again.
 Use the publisher log under `.venv/workspace/publish-<Jupyter port>.log` to check a save.

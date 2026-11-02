@@ -52,3 +52,12 @@ function Pandoc(doc)
   doc.blocks = sections
   return doc
 end
+
+-- Jupyter opens local chapter files. The published workbook opens the same files on GitHub.
+function Link(link)
+  local chapter_file = link.target:match("^book/(code%-ch%d%d/[%w_.%-]+)$")
+  if chapter_file then
+    link.target = "https://github.com/arjunrajkumar/programmingbitcoin/blob/master/" .. chapter_file
+    return link
+  end
+end

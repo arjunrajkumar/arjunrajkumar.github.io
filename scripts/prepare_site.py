@@ -6,6 +6,7 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
+    "notebooks/programmingbitcoin/index.html": "programmingbitcoin/index.html",
     "notebooks/verifying-bitcoin-transaction-signature/index.html":
         "verifying-bitcoin-transaction-signature/index.html",
     "notebooks/deconstructing-a-payment-transaction/index.html":

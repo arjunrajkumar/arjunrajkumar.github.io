@@ -13,6 +13,8 @@ from urllib.parse import quote, urlencode, urlsplit
 from urllib.request import Request, urlopen
 import webbrowser
 
+from prepare_programming_bitcoin import WORKBOOK, prepare_book, update_checkout
+
 
 ROOT = Path(__file__).resolve().parents[1]
 VENV = ROOT / ".venv"
@@ -159,17 +161,24 @@ def ensure_publisher(server, runtime_file):
     script = ROOT / "scripts" / "publish_on_save.py"
     ready = LOG_DIR / "publish-ready.json"
 
-    def listening():
+    def listening(upgrade=False):
         try:
             state = json.loads(ready.read_text())
             process = psutil.Process(state["pid"])
-            return (state["server_pid"] == server["pid"]
-                    and str(script) in process.cmdline()
-                    and str(runtime_file) in process.cmdline())
+            if (state["server_pid"] != server["pid"] or str(script) not in process.cmdline()
+                    or str(runtime_file) not in process.cmdline()):
+                return False
+            if state.get("chapter_saves"):
+                return True
+            if upgrade:
+                # The old subscriber only watched notebooks. Keep Jupyter and its kernels running.
+                process.terminate()
+                process.wait(timeout=10)
+            return False
         except (FileNotFoundError, ValueError, KeyError, psutil.Error):
             return False
 
-    if not listening():
+    if not listening(upgrade=True):
         process, log = spawn(
             [str(PYTHON), "-u", str(script), str(runtime_file)], "publish", server["port"],
         )
@@ -240,8 +249,16 @@ def main():
     prepare_tools()
     import nbformat
     from jupyter_core.paths import jupyter_runtime_dir
-    nbformat.validate(nbformat.read(notebook_path, as_version=4))
     notebook = notebook_path.relative_to(ROOT).as_posix()
+    if notebook == WORKBOOK:
+        book = prepare_book()
+
+        def sessions_open():
+            return any(request_json(item, "api/sessions") for item in local_jupyter_servers())
+
+        update_checkout(ROOT, "main", sessions_open)
+        update_checkout(book, "master", sessions_open)
+    nbformat.validate(nbformat.read(notebook_path, as_version=4))
     server = ensure_jupyter(8889)
     check_notebook(server, notebook)
     preview = ensure_preview(8765)
@@ -249,7 +266,7 @@ def main():
     runtime_file = Path(jupyter_runtime_dir()) / f"jpserver-{server['pid']}.json"
     LOG_DIR.mkdir(mode=0o700, parents=True, exist_ok=True)
     enabled = LOG_DIR / "publish-enabled"
-    if args.publish_on_save:
+    if args.publish_on_save or notebook == WORKBOOK:
         enabled.touch()
     if enabled.exists():
         ensure_publisher(server, runtime_file)
