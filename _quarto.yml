@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - pages/index.qmd
+    - notebooks/finite-fields-in-cryptography/index.ipynb
     - notebooks/verifying-bitcoin-transaction-signature/index.ipynb
     - notebooks/deconstructing-a-payment-transaction/index.ipynb
     - notebooks/programmingbitcoin/index.ipynb

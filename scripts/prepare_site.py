@@ -2,6 +2,7 @@
 
 import json
 from pathlib import Path
+from shutil import copytree
 
 import yaml
 
@@ -11,6 +12,7 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
+    "notebooks/finite-fields-in-cryptography/index.html": "finite-fields-in-cryptography/index.html",
     "notebooks/programmingbitcoin/index.html": "programmingbitcoin/index.html",
     "notebooks/verifying-bitcoin-transaction-signature/index.html":
         "verifying-bitcoin-transaction-signature/index.html",
@@ -29,6 +31,10 @@ for source, target in pages.items():
     if not html.lstrip().lower().startswith("<!doctype html>"):
         html = "<!doctype html>\n" + html
     destination.write_text(html)
+    # Relative links to notebook figures must also work at the public URL.
+    resources = rendered.with_name(rendered.stem + "_files")
+    if resources.is_dir():
+        copytree(resources, destination.parent / resources.name, dirs_exist_ok=True)
 
 # Read only pages in the current render list. Old preview files can outlive a post.
 targets = yaml.safe_load((root / "_quarto.yml").read_text())["project"]["render"]

@@ -225,6 +225,15 @@ a:visited {
   height: auto;
 }
 
+.post-page .cell.line-plot,
+.post-page .line-plot .cell-output {
+  padding: 0;
+}
+
+.post-page .line-plot figure {
+  margin: 0;
+}
+
 .post-page .cell-output-stderr,
 .post-page .cell-output-error {
   background: #fdd;
