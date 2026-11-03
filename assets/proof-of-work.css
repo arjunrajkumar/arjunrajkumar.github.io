@@ -4,18 +4,8 @@
   margin: 1.1rem 0 1.5rem;
 }
 
-.proof-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.25rem 1rem;
-  margin-bottom: 0.65rem;
-}
-
-#proof-title {
-  margin: 0;
-  font-size: 1rem;
+#proof-range {
+  margin: 0 0 0.65rem;
 }
 
 #proof-range,

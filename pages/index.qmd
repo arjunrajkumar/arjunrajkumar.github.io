@@ -14,11 +14,8 @@ format:
 </div>
 
 ```{=html}
-<section id="proof-of-work" aria-labelledby="proof-title" hidden>
-  <div class="proof-header">
-    <h2 id="proof-title">Proof of work</h2>
-    <span id="proof-range"></span>
-  </div>
+<section id="proof-of-work" aria-label="Bitcoin learning notes for the last seven days" hidden>
+  <p id="proof-range"></p>
   <div id="proof-week"></div>
   <div id="proof-details" hidden></div>
 </section>
