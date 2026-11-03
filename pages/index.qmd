@@ -21,9 +21,9 @@ format:
 </section>
 ```
 
-- Verifying a [transaction signature](verifying-bitcoin-transaction-signature/)
-- Deconstructing a [payment transaction](deconstructing-a-payment-transaction/)
 - [Programming Bitcoin](programmingbitcoin/) exercises
+- Deconstructing a [payment transaction](deconstructing-a-payment-transaction/)
+- Verifying a [transaction signature](verifying-bitcoin-transaction-signature/)
 
 <h2 class="subtitle">Previous work with Ruby on Rails:</h2>
 
