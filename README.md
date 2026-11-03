@@ -15,6 +15,18 @@ The sources have separate folders because Quarto writes temporary HTML beside th
 `scripts/prepare_site.py` copies the generated pages to their existing URLs inside `_site/`.
 Edit the source files, not the generated HTML. The earlier HTML versions remain in Git history.
 
+## Proof of work
+
+In a published post or notebook, use a heading such as
+`### 2026-11-03 — Finite fields`. Use the date in India. Under the heading,
+write your explanation in a paragraph or a list. A heading on its own stays empty.
+You can add another dated heading for a different topic on the same day.
+Each day has one bar. Each topic links to the passage on the blog.
+
+The chart reads the published articles each time the site builds. Older passages
+have invisible date and topic labels beside the original words. Removing the
+passage removes its entry. The seven-day window moves at midnight in India.
+
 ## Start everything
 
 In a new chat, say `start`. The workflow in `AGENTS.md` sets up the tools,

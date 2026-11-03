@@ -1,0 +1,93 @@
+#proof-of-work {
+  position: relative;
+  max-width: 26rem;
+  margin: 1.1rem 0 1.5rem;
+}
+
+.proof-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.65rem;
+}
+
+#proof-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+#proof-range,
+.proof-day {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+#proof-week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.proof-day {
+  appearance: none;
+  display: grid;
+  grid-template-rows: 5rem auto;
+  gap: 0.3rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.proof-track {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  border-block: 1px solid #dcdcdc;
+  border-inline-start: 1px dashed #d7d7d7;
+  background: linear-gradient(to bottom, transparent calc(50% - 1px), #efefef 50%, transparent 50%);
+}
+
+.proof-day:last-child .proof-track {
+  border-inline-end: 1px solid #dcdcdc;
+}
+
+.proof-day[data-written] .proof-track::after {
+  content: "";
+  width: 62%;
+  height: 78%;
+  border-radius: 3px 3px 0 0;
+  background: #F7931A;
+}
+
+.proof-day:focus-visible {
+  outline: 2px solid #454545;
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.proof-day[aria-expanded="true"] .proof-track {
+  background-color: #f7f7f7;
+}
+
+#proof-details {
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(19rem, 100%);
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 3px 12px #0001;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+#proof-details ul {
+  margin: 0.3rem 0 0;
+  padding-left: 1.1rem;
+}

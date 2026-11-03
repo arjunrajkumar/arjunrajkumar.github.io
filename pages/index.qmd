@@ -13,6 +13,17 @@ format:
 <p class="learning-progress">(63 hours down the Bitcoin rabbit hole)</p>
 </div>
 
+```{=html}
+<section id="proof-of-work" aria-labelledby="proof-title" hidden>
+  <div class="proof-header">
+    <h2 id="proof-title">Proof of work</h2>
+    <span id="proof-range"></span>
+  </div>
+  <div id="proof-week"></div>
+  <div id="proof-details" hidden></div>
+</section>
+```
+
 - Verifying a [transaction signature](verifying-bitcoin-transaction-signature/)
 - Deconstructing a [payment transaction](deconstructing-a-payment-transaction/)
 - [Programming Bitcoin](programmingbitcoin/) exercises
