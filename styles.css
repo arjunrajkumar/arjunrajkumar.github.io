@@ -283,6 +283,12 @@ a:visited {
   font-weight: 700;
 }
 
+#one-point-many-lines,
+#two-points-one-line {
+  font-size: inherit;
+  font-weight: 700;
+}
+
 .post-section + .post-section {
   margin-top: 2rem;
 }
