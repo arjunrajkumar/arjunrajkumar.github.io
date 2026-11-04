@@ -21,6 +21,7 @@ format:
 </section>
 ```
 
+- [Division in a finite field](division-in-a-finite-field/)
 - [Finite Fields in cryptography](finite-fields-in-cryptography/)
 - [Programming Bitcoin](programmingbitcoin/) exercises
 - Deconstructing a [payment transaction](deconstructing-a-payment-transaction/)
