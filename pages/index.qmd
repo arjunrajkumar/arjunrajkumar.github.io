@@ -10,7 +10,7 @@ format:
 
 <div class="bitcoin-intro">
 <h2 class="subtitle">Currently exploring Bitcoin</h2>
-<p class="learning-progress">(76 hours down the Bitcoin rabbit hole)</p>
+<p class="learning-progress">(85 hours down the Bitcoin rabbit hole)</p>
 </div>
 
 ```{=html}
@@ -21,6 +21,7 @@ format:
 </section>
 ```
 
+- [My understanding of elliptical curves](elliptical-curves/)
 - [Division in a finite field](division-in-a-finite-field/)
 - [Finite Fields in cryptography](finite-fields-in-cryptography/)
 - [Programming Bitcoin](https://github.com/arjunrajkumar/programmingbitcoin/) exercises

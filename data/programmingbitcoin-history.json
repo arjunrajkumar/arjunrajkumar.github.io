@@ -33,5 +33,45 @@
     "date": "2026-11-04",
     "topic": "Exercise 1.7 — Powers modulo a prime",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 1.8 — Division and negative powers modulo 31",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 1.9 — Field element division",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 2.1 — Checking points on a curve",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 2.2 — Point inequality",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 2.3 — Adding opposite points",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 2.4 — Adding (2, 5) and (-1, -1)",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 2.5 — Point addition with different x values",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Exercise 2.7 — Point doubling",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
   }
 ]

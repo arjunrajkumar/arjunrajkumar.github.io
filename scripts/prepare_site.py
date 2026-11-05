@@ -12,6 +12,7 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
+    "notebooks/elliptical-curves/index.html": "elliptical-curves/index.html",
     "notebooks/division-in-a-finite-field/index.html": "division-in-a-finite-field/index.html",
     "notebooks/finite-fields-in-cryptography/index.html": "finite-fields-in-cryptography/index.html",
     "notebooks/verifying-bitcoin-transaction-signature/index.html":
@@ -47,7 +48,7 @@ for target in targets:
         url = "/" + public.removesuffix("index.html")
         notes.extend(article_notes(rendered.read_text(), url))
 
-# Keep the dated exercises after retiring the combined workbook.
+# Keep dated exercise work from the chapter notebooks and archived workbook.
 notes.extend(json.loads((root / "data" / "programmingbitcoin-history.json").read_text()))
 
 # Existing bookmarks must still reach the chapter work.

@@ -23,7 +23,7 @@ write your explanation in a paragraph or a list. A heading on its own stays empt
 You can add another dated heading for a different topic on the same day.
 Each day has one bar. Each topic links to the passage on the blog. Older Programming Bitcoin exercise entries link to the GitHub repository.
 
-The chart reads the published articles each time the site builds. The seven archived Programming Bitcoin entries are kept in `data/programmingbitcoin-history.json`. Older passages
+The chart reads the published articles each time the site builds. Programming Bitcoin exercise entries are kept in `data/programmingbitcoin-history.json`. Older passages
 have invisible date and topic labels beside the original words. Removing the
 passage removes its entry. The seven-day window moves at midnight in India.
 

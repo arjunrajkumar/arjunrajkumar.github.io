@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - pages/index.qmd
+    - notebooks/elliptical-curves/index.ipynb
     - notebooks/division-in-a-finite-field/index.ipynb
     - notebooks/finite-fields-in-cryptography/index.ipynb
     - notebooks/verifying-bitcoin-transaction-signature/index.ipynb
