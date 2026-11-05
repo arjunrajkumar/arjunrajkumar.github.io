@@ -1,4 +1,4 @@
-"""Connect the blog workbook to Arjun's editable copy of the book."""
+"""Connect the chapter notebooks to Arjun's editable copy of the book."""
 
 from pathlib import Path
 import os
@@ -6,8 +6,9 @@ import subprocess
 
 
 BLOG = Path(__file__).resolve().parents[1]
-WORKBOOK = "notebooks/programmingbitcoin/index.ipynb"
-BOOK_LINK = (BLOG / WORKBOOK).parent / "book"
+BOOK_PREFIX = "notebooks/programmingbitcoin/book"
+BOOK_LINK = BLOG / BOOK_PREFIX
+DEFAULT_BOOK_NOTEBOOK = BOOK_PREFIX + "/code-ch01/Chapter1.ipynb"
 FORK = "arjunrajkumar/programmingbitcoin"
 FORK_URL = f"https://github.com/{FORK}.git"
 
@@ -61,6 +62,7 @@ def prepare_book():
     if not (book / "code-ch01" / "ecc.py").is_file():
         raise RuntimeError("The book checkout is missing the Chapter 1 starter file.")
     if not os.path.lexists(BOOK_LINK):
+        BOOK_LINK.parent.mkdir(parents=True, exist_ok=True)
         try:
             BOOK_LINK.symlink_to(os.path.relpath(book, BOOK_LINK.parent), target_is_directory=True)
         except FileExistsError:

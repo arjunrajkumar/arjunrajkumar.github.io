@@ -21,9 +21,9 @@ In a published post or notebook, use a heading such as
 `### 2026-11-03 — Finite fields`. Use the date in India. Under the heading,
 write your explanation in a paragraph or a list. A heading on its own stays empty.
 You can add another dated heading for a different topic on the same day.
-Each day has one bar. Each topic links to the passage on the blog.
+Each day has one bar. Each topic links to the passage on the blog. Older Programming Bitcoin exercise entries link to the GitHub repository.
 
-The chart reads the published articles each time the site builds. Older passages
+The chart reads the published articles each time the site builds. The seven archived Programming Bitcoin entries are kept in `data/programmingbitcoin-history.json`. Older passages
 have invisible date and topic labels beside the original words. Removing the
 passage removes its entry. The seven-day window moves at midnight in India.
 
@@ -117,10 +117,20 @@ This applies to tracked `notebooks/<post>/index.ipynb` files listed in the commi
 URL mapping, and homepage link committed and pushed together once.
 The playground and homepage use the manual Git workflow.
 
-For Programming Bitcoin, run `python3.13 scripts/start_workspace.py notebooks/programmingbitcoin/index.ipynb`.
-It checks both repositories for updates and enables publishing on this laptop.
-Workbook saves update the [live workbook](https://arjunrajkumar.github.io/programmingbitcoin/).
-Jupyter saves for Python files and chapter notebooks update [Arjun's fork](https://github.com/arjunrajkumar/programmingbitcoin).
+For Programming Bitcoin, work in each chapter's own notebook. For Chapter 2, run:
+
+```sh
+python3.13 scripts/start_workspace.py notebooks/programmingbitcoin/book/code-ch02/Chapter2.ipynb
+```
+
+Choose the chapter folder and notebook that you need. Startup checks both repositories
+for updates and enables publishing on this laptop. Jupyter saves for Python files and
+chapter notebooks update [Arjun's fork](https://github.com/arjunrajkumar/programmingbitcoin/).
+Each chapter notebook has its own Python session. Do not combine chapter imports in one notebook.
+
+The former combined notebook is saved as `notebooks/programmingbitcoin/archive.ipynb`.
+It is no longer published. Its saved work is also in Git history. The old public URL
+forwards to GitHub. Older startup commands that name the combined index open Chapter 1.
 
 To pause automatic publication, run `touch .venv/workspace/pause-publishing`.
 To resume, run `rm .venv/workspace/pause-publishing` and save the post again.

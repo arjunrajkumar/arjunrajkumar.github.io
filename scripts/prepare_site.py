@@ -14,7 +14,6 @@ pages = {
     "pages/index.html": "index.html",
     "notebooks/division-in-a-finite-field/index.html": "division-in-a-finite-field/index.html",
     "notebooks/finite-fields-in-cryptography/index.html": "finite-fields-in-cryptography/index.html",
-    "notebooks/programmingbitcoin/index.html": "programmingbitcoin/index.html",
     "notebooks/verifying-bitcoin-transaction-signature/index.html":
         "verifying-bitcoin-transaction-signature/index.html",
     "notebooks/deconstructing-a-payment-transaction/index.html":
@@ -47,6 +46,27 @@ for target in targets:
     if public != "index.html" and rendered.is_file():
         url = "/" + public.removesuffix("index.html")
         notes.extend(article_notes(rendered.read_text(), url))
+
+# Keep the dated exercises after retiring the combined workbook.
+notes.extend(json.loads((root / "data" / "programmingbitcoin-history.json").read_text()))
+
+# Existing bookmarks must still reach the chapter work.
+book_url = "https://github.com/arjunrajkumar/programmingbitcoin/"
+redirect = f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Programming Bitcoin</title>
+<meta http-equiv="refresh" content="0; url={book_url}">
+<link rel="canonical" href="{book_url}">
+</head>
+<body><p><a href="{book_url}">Programming Bitcoin exercises on GitHub</a></p></body>
+</html>
+'''
+for old_url in ("programmingbitcoin/index.html", "notebooks/programmingbitcoin/index.html"):
+    destination = site / old_url
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(redirect)
 
 assets = site / "assets"
 assets.mkdir(exist_ok=True)

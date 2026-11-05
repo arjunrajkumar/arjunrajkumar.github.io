@@ -13,7 +13,7 @@ from urllib.parse import quote, urlencode, urlsplit
 from urllib.request import Request, urlopen
 import webbrowser
 
-from prepare_programming_bitcoin import WORKBOOK, prepare_book, update_checkout
+from prepare_programming_bitcoin import BOOK_LINK, DEFAULT_BOOK_NOTEBOOK, prepare_book, update_checkout
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -233,6 +233,22 @@ def ensure_preview(preferred):
     return {"url": url, "pid": process.pid}
 
 
+def resolve_notebook(requested):
+    # Keep older saved startup commands usable without the combined notebook.
+    if requested == "notebooks/programmingbitcoin/index.ipynb":
+        requested = DEFAULT_BOOK_NOTEBOOK
+    path = Path(os.path.abspath(ROOT / requested))
+    if not path.is_relative_to(ROOT):
+        raise RuntimeError("Choose a notebook inside this repository or the linked book checkout.")
+    book = prepare_book() if path.is_relative_to(BOOK_LINK) else None
+    resolved = path.resolve()
+    allowed_root = book.resolve() if book is not None else ROOT
+    if not resolved.is_relative_to(allowed_root) or not resolved.is_file() or resolved.suffix != ".ipynb":
+        raise RuntimeError("Choose an existing .ipynb file inside this repository or the linked book checkout.")
+    # Jupyter needs the link path even when the file lives in the sibling checkout.
+    return path.relative_to(ROOT).as_posix(), resolved, book
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("notebook", nargs="?", default=DEFAULT_NOTEBOOK)
@@ -241,17 +257,13 @@ def main():
                         help="Enable automatic publishing of registered notebook saves for this checkout.")
     args = parser.parse_args()
     os.chdir(ROOT)
-    notebook_path = (ROOT / args.notebook).resolve()
-    if not notebook_path.is_relative_to(ROOT) or not notebook_path.is_file() or notebook_path.suffix != ".ipynb":
-        raise RuntimeError("Choose an existing .ipynb file inside this repository.")
     if not (ROOT / ".git").exists():
         raise RuntimeError("Use a Git clone of the website repository, not a downloaded folder.")
     prepare_tools()
     import nbformat
     from jupyter_core.paths import jupyter_runtime_dir
-    notebook = notebook_path.relative_to(ROOT).as_posix()
-    if notebook == WORKBOOK:
-        book = prepare_book()
+    notebook, notebook_path, book = resolve_notebook(args.notebook)
+    if book is not None:
 
         def sessions_open():
             return any(request_json(item, "api/sessions") for item in local_jupyter_servers())
@@ -266,7 +278,7 @@ def main():
     runtime_file = Path(jupyter_runtime_dir()) / f"jpserver-{server['pid']}.json"
     LOG_DIR.mkdir(mode=0o700, parents=True, exist_ok=True)
     enabled = LOG_DIR / "publish-enabled"
-    if args.publish_on_save or notebook == WORKBOOK:
+    if args.publish_on_save or book is not None:
         enabled.touch()
     if enabled.exists():
         ensure_publisher(server, runtime_file)

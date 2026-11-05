@@ -7,7 +7,6 @@ project:
     - notebooks/finite-fields-in-cryptography/index.ipynb
     - notebooks/verifying-bitcoin-transaction-signature/index.ipynb
     - notebooks/deconstructing-a-payment-transaction/index.ipynb
-    - notebooks/programmingbitcoin/index.ipynb
   post-render:
     - python3 scripts/prepare_site.py
   resources:

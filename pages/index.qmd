@@ -23,7 +23,7 @@ format:
 
 - [Division in a finite field](division-in-a-finite-field/)
 - [Finite Fields in cryptography](finite-fields-in-cryptography/)
-- [Programming Bitcoin](programmingbitcoin/) exercises
+- [Programming Bitcoin](https://github.com/arjunrajkumar/programmingbitcoin/) exercises
 - Deconstructing a [payment transaction](deconstructing-a-payment-transaction/)
 - Verifying a [transaction signature](verifying-bitcoin-transaction-signature/)
 
