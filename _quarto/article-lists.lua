@@ -33,13 +33,27 @@ function Pandoc(doc)
     if #content == 0 then return end
     local attributes = {}
     if section_id then attributes["aria-labelledby"] = section_id end
+    -- Keep the AI exercise, saved graph and graph code in one closed disclosure.
+    if section_id == "ai-exercise" then
+      local exercise = pandoc.List()
+      exercise:insert(pandoc.RawBlock("html",
+        '<details class="ai-exercise"><summary id="ai-exercise"><strong>Exercise by AI — Adding points</strong></summary><div style="padding-top: 1rem;">'))
+      -- The summary replaces the section heading.
+      for i = 2, #content do
+        exercise:insert(content[i])
+      end
+      exercise:insert(pandoc.RawBlock("html", "</div></details>"))
+      content = exercise
+    end
     sections:insert(pandoc.Div(content, pandoc.Attr("", {"post-section"}, attributes)))
     content = pandoc.List()
   end
   for _, block in ipairs(doc.blocks) do
     if block.t == "Header" and block.level == 2 then
       finish_section()
-      section_id = ids[pandoc.utils.stringify(block.content)] or block.identifier
+      local heading = pandoc.utils.stringify(block.content)
+      section_id = ids[heading] or block.identifier
+      if heading == "Exercise by AI — Adding points" then section_id = "ai-exercise" end
       block.identifier = section_id
       block.classes = {"subtitle"}
       -- Raw HTML prevents Quarto from also applying heading classes to the section.
