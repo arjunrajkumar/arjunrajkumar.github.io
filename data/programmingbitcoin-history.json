@@ -73,5 +73,25 @@
     "date": "2026-11-05",
     "topic": "Exercise 2.7 — Point doubling",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/"
+  },
+  {
+    "date": "2026-11-06",
+    "topic": "Elliptic curve point equality and addition cases",
+    "href": "/elliptical-curves/"
+  },
+  {
+    "date": "2026-11-06",
+    "topic": "Exercise 2.5 — Verified point addition with different x values",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/d9a8aa5a3b9cafe5b3bec180faea97269fe0cc18/code-ch02/Chapter2.ipynb"
+  },
+  {
+    "date": "2026-11-06",
+    "topic": "Exercise 2.6 — Doubling (-1, -1) to (18, 77)",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/d9a8aa5a3b9cafe5b3bec180faea97269fe0cc18/code-ch02/Chapter2.ipynb"
+  },
+  {
+    "date": "2026-11-06",
+    "topic": "Exercise 2.7 — Verified point doubling",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/d9a8aa5a3b9cafe5b3bec180faea97269fe0cc18/code-ch02/Chapter2.ipynb"
   }
 ]
