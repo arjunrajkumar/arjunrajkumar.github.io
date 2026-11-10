@@ -13,7 +13,7 @@
   const format = (options) => new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", ...options });
   const dayLabel = format({ day: "numeric", month: "short" });
   const fullDate = format({ dateStyle: "full" });
-  const shortDate = format({ day: "numeric", month: "short", year: "numeric" });
+  const monthLabel = format({ month: "short", year: "numeric" });
   let lastDay;
   let active;
   let pinned = false;
@@ -71,7 +71,7 @@
     end.setUTCMonth(end.getUTCMonth() + 1, 0);
     const dayCount = end.getUTCDate();
     days.style.setProperty("--proof-day-count", dayCount);
-    range.textContent = shortDate.formatRange(start, end);
+    range.textContent = monthLabel.format(start);
 
     for (let offset = 0; offset < dayCount; offset++) {
       const day = new Date(start);
@@ -85,6 +85,7 @@
       button.dataset.date = key;
       if (offset % 7 === 0) button.dataset.weekStart = "";
       if (entries.length) button.dataset.written = "";
+      else if (key <= today) button.dataset.missing = "";
       button.setAttribute("aria-label", label + (entries.length ? ", written work" : ", no written work"));
       button.setAttribute("aria-controls", details.id);
       button.setAttribute("aria-expanded", "false");

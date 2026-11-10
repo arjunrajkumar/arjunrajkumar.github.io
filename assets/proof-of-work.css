@@ -62,12 +62,17 @@
   border-inline-end: 1px solid #dcdcdc;
 }
 
-.proof-day[data-written] .proof-track::after {
+.proof-day[data-written] .proof-track::after,
+.proof-day[data-missing] .proof-track::after {
   content: "";
   width: 62%;
   height: 78%;
   border-radius: 3px 3px 0 0;
   background: #F7931A;
+}
+
+.proof-day[data-missing] .proof-track::after {
+  background: #eee;
 }
 
 .proof-day:focus-visible {
