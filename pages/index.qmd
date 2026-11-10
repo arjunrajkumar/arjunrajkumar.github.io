@@ -15,9 +15,9 @@ format:
 ```{=html}
 <section id="proof-of-work" aria-label="Bitcoin learning notes by month" hidden>
   <div class="proof-heading">
-    <button id="proof-previous" class="proof-month-button" type="button" aria-label="Previous month" aria-controls="proof-days">&lt;</button>
+    <button id="proof-previous" class="proof-month-button" type="button" aria-label="Previous month" aria-controls="proof-days"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 6-6 6 6 6"/></svg></button>
     <p id="proof-range" aria-live="polite"></p>
-    <button id="proof-next" class="proof-month-button" type="button" aria-label="Next month" aria-controls="proof-days">&gt;</button>
+    <button id="proof-next" class="proof-month-button" type="button" aria-label="Next month" aria-controls="proof-days"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg></button>
   </div>
   <div id="proof-days"></div>
   <div id="proof-details" hidden></div>
