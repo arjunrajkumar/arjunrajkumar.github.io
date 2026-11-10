@@ -93,5 +93,25 @@
     "date": "2026-11-06",
     "topic": "Exercise 2.7 — Verified point doubling",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/d9a8aa5a3b9cafe5b3bec180faea97269fe0cc18/code-ch02/Chapter2.ipynb"
+  },
+  {
+    "date": "2026-11-07",
+    "topic": "Exercise 3.1 — Checking points on a curve over a finite field",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/5a90d438ab760c611e0b859a6b2347251973febe/code-ch03/Chapter3.ipynb"
+  },
+  {
+    "date": "2026-11-07",
+    "topic": "Exercise 3.2 — Adding points over a finite field",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/5a90d438ab760c611e0b859a6b2347251973febe/code-ch03/Chapter3.ipynb"
+  },
+  {
+    "date": "2026-11-07",
+    "topic": "Exercise 3.3 — Verified finite-field point addition",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/5a90d438ab760c611e0b859a6b2347251973febe/code-ch03/Chapter3.ipynb"
+  },
+  {
+    "date": "2026-11-07",
+    "topic": "Exercise 3.4 — Repeated point addition and the point at infinity",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/5a90d438ab760c611e0b859a6b2347251973febe/code-ch03/Chapter3.ipynb"
   }
 ]
