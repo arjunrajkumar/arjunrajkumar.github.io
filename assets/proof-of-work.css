@@ -4,8 +4,33 @@
   margin: 1.1rem 0 1.5rem;
 }
 
-#proof-range {
+.proof-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
   margin: 0 0 0.65rem;
+}
+
+#proof-range {
+  margin: 0;
+}
+
+.proof-month-button {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: #666;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.proof-month-button:hover {
+  background: #f7f7f7;
 }
 
 #proof-range,
@@ -75,6 +100,7 @@
   background: #eee;
 }
 
+.proof-month-button:focus-visible,
 .proof-day:focus-visible {
   outline: 2px solid #454545;
   outline-offset: 2px;

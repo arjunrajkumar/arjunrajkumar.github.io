@@ -14,8 +14,12 @@ format:
 </div>
 
 ```{=html}
-<section id="proof-of-work" aria-label="Bitcoin learning notes for this month" hidden>
-  <p id="proof-range"></p>
+<section id="proof-of-work" aria-label="Bitcoin learning notes by month" hidden>
+  <div class="proof-heading">
+    <button id="proof-previous" class="proof-month-button" type="button" aria-label="Previous month" aria-controls="proof-days">&lt;</button>
+    <p id="proof-range" aria-live="polite"></p>
+    <button id="proof-next" class="proof-month-button" type="button" aria-label="Next month" aria-controls="proof-days">&gt;</button>
+  </div>
   <div id="proof-days"></div>
   <div id="proof-details" hidden></div>
 </section>

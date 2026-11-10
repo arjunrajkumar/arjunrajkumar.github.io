@@ -3,6 +3,8 @@
   const days = document.querySelector("#proof-days");
   const details = document.querySelector("#proof-details");
   const range = document.querySelector("#proof-range");
+  const previous = document.querySelector("#proof-previous");
+  const next = document.querySelector("#proof-next");
   if (!chart) return;
 
   const response = await fetch("/assets/proof-of-work.json");
@@ -14,6 +16,11 @@
   const dayLabel = format({ day: "numeric", month: "short" });
   const fullDate = format({ dateStyle: "full" });
   const monthLabel = format({ month: "short", year: "numeric" });
+  const initialToday = indiaDate.format(new Date());
+  const firstRecordedDay = notes.map((note) => note.date).sort()[0] || initialToday;
+  const firstMonth = firstRecordedDay.slice(0, 7);
+  let selectedMonth = initialToday.slice(0, 7);
+  let renderedMonth;
   let lastDay;
   let active;
   let pinned = false;
@@ -59,19 +66,46 @@
     positionDetails();
   }
 
+  function adjacentMonth(offset) {
+    const month = new Date(selectedMonth + "-01T00:00:00Z");
+    month.setUTCMonth(month.getUTCMonth() + offset);
+    return month;
+  }
+
+  function changeMonth(offset) {
+    const month = adjacentMonth(offset).toISOString().slice(0, 7);
+    const currentMonth = indiaDate.format(new Date()).slice(0, 7);
+    if (month < firstMonth || month > currentMonth) return;
+    const focused = document.activeElement;
+    selectedMonth = month;
+    renderDays();
+    if (focused === previous && previous.hidden) next.focus();
+    if (focused === next && next.hidden) previous.focus();
+  }
+
   function renderDays() {
     const today = indiaDate.format(new Date());
-    if (today === lastDay) return;
+    const currentMonth = today.slice(0, 7);
+    // Follow the new month only when the reader was viewing the current month.
+    if (lastDay && selectedMonth === renderedMonth && selectedMonth === lastDay.slice(0, 7)) {
+      selectedMonth = currentMonth;
+    }
+    if (today === lastDay && selectedMonth === renderedMonth) return;
     lastDay = today;
+    renderedMonth = selectedMonth;
     closeDetails();
     days.replaceChildren();
-    const start = new Date(today + "T00:00:00Z");
-    start.setUTCDate(1);
+    const start = new Date(selectedMonth + "-01T00:00:00Z");
     const end = new Date(start);
     end.setUTCMonth(end.getUTCMonth() + 1, 0);
     const dayCount = end.getUTCDate();
     days.style.setProperty("--proof-day-count", dayCount);
     range.textContent = monthLabel.format(start);
+    chart.setAttribute("aria-label", "Bitcoin learning notes for " + range.textContent);
+    previous.hidden = selectedMonth <= firstMonth;
+    next.hidden = selectedMonth >= currentMonth;
+    previous.setAttribute("aria-label", "Show " + monthLabel.format(adjacentMonth(-1)));
+    next.setAttribute("aria-label", "Show " + monthLabel.format(adjacentMonth(1)));
 
     for (let offset = 0; offset < dayCount; offset++) {
       const day = new Date(start);
@@ -85,7 +119,7 @@
       button.dataset.date = key;
       if (offset % 7 === 0) button.dataset.weekStart = "";
       if (entries.length) button.dataset.written = "";
-      else if (key <= today) button.dataset.missing = "";
+      else if (key >= firstRecordedDay && key <= today) button.dataset.missing = "";
       button.setAttribute("aria-label", label + (entries.length ? ", written work" : ", no written work"));
       button.setAttribute("aria-controls", details.id);
       button.setAttribute("aria-expanded", "false");
@@ -116,6 +150,9 @@
     }
     chart.hidden = false;
   }
+
+  previous.addEventListener("click", () => changeMonth(-1));
+  next.addEventListener("click", () => changeMonth(1));
 
   chart.addEventListener("pointerleave", (event) => {
     if (!pinned && event.pointerType === "mouse" && !details.contains(document.activeElement)) closeDetails();
