@@ -1,6 +1,7 @@
 (async function () {
   const chart = document.querySelector("#proof-of-work");
-  const week = document.querySelector("#proof-week");
+  const days = document.querySelector("#proof-days");
+  const dayCount = 30;
   const details = document.querySelector("#proof-details");
   const range = document.querySelector("#proof-range");
   if (!chart) return;
@@ -11,7 +12,7 @@
 
   const indiaDate = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Kolkata" });
   const format = (options) => new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", ...options });
-  const weekday = format({ weekday: "short" });
+  const dayLabel = format({ day: "numeric", month: "short" });
   const fullDate = format({ dateStyle: "full" });
   const shortDate = format({ day: "numeric", month: "short", year: "numeric" });
   let lastDay;
@@ -59,18 +60,18 @@
     positionDetails();
   }
 
-  function renderWeek() {
+  function renderDays() {
     const today = indiaDate.format(new Date());
     if (today === lastDay) return;
     lastDay = today;
     closeDetails();
-    week.replaceChildren();
+    days.replaceChildren();
     const end = new Date(today + "T00:00:00Z");
     const start = new Date(end);
-    start.setUTCDate(end.getUTCDate() - 6);
+    start.setUTCDate(end.getUTCDate() - (dayCount - 1));
     range.textContent = shortDate.formatRange(start, end);
 
-    for (let offset = 0; offset < 7; offset++) {
+    for (let offset = 0; offset < dayCount; offset++) {
       const day = new Date(start);
       day.setUTCDate(start.getUTCDate() + offset);
       const key = day.toISOString().slice(0, 10);
@@ -80,6 +81,7 @@
       button.type = "button";
       button.className = "proof-day";
       button.dataset.date = key;
+      if (offset % 7 === 0) button.dataset.weekStart = "";
       if (entries.length) button.dataset.written = "";
       button.setAttribute("aria-label", label + (entries.length ? ", written work" : ", no written work"));
       button.setAttribute("aria-controls", details.id);
@@ -87,7 +89,14 @@
       const track = document.createElement("span");
       track.className = "proof-track";
       track.setAttribute("aria-hidden", "true");
-      button.append(track, weekday.format(day));
+      button.append(track);
+      if ((offset % 7 === 0 && offset < dayCount - 3) || offset === dayCount - 1) {
+        const tick = document.createElement("span");
+        tick.className = "proof-date";
+        tick.setAttribute("aria-hidden", "true");
+        tick.textContent = dayLabel.format(day);
+        button.append(tick);
+      }
 
       const show = () => showDay(button, label, entries);
       button.addEventListener("pointerenter", (event) => {
@@ -100,7 +109,7 @@
         pinned = true;
         if (event.detail === 0) details.querySelector("a")?.focus();
       });
-      week.append(button);
+      days.append(button);
     }
     chart.hidden = false;
   }
@@ -121,7 +130,7 @@
     }
   });
   window.addEventListener("resize", positionDetails);
-  document.addEventListener("visibilitychange", renderWeek);
-  renderWeek();
-  window.setInterval(renderWeek, 60000);
+  document.addEventListener("visibilitychange", renderDays);
+  renderDays();
+  window.setInterval(renderDays, 60000);
 })().catch(console.error);

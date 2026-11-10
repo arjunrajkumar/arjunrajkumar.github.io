@@ -14,15 +14,17 @@
   font-size: 0.8rem;
 }
 
-#proof-week {
+#proof-days {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(30, minmax(0, 1fr));
 }
 
 .proof-day {
   appearance: none;
   display: grid;
-  grid-template-rows: 5rem auto;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 5rem 1.2rem;
+  min-width: 0;
   gap: 0.3rem;
   padding: 0;
   border: 0;
@@ -36,8 +38,24 @@
   align-items: end;
   justify-content: center;
   border-block: 1px solid #dcdcdc;
-  border-inline-start: 1px dashed #d7d7d7;
   background: linear-gradient(to bottom, transparent calc(50% - 1px), #efefef 50%, transparent 50%);
+}
+
+.proof-day[data-week-start] .proof-track {
+  border-inline-start: 1px dashed #d7d7d7;
+}
+
+.proof-date {
+  justify-self: center;
+  white-space: nowrap;
+}
+
+.proof-day:first-child .proof-date {
+  justify-self: start;
+}
+
+.proof-day:last-child .proof-date {
+  justify-self: end;
 }
 
 .proof-day:last-child .proof-track {

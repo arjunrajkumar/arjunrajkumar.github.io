@@ -14,9 +14,9 @@ format:
 </div>
 
 ```{=html}
-<section id="proof-of-work" aria-label="Bitcoin learning notes for the last seven days" hidden>
+<section id="proof-of-work" aria-label="Bitcoin learning notes for the last 30 days" hidden>
   <p id="proof-range"></p>
-  <div id="proof-week"></div>
+  <div id="proof-days"></div>
   <div id="proof-details" hidden></div>
 </section>
 ```
