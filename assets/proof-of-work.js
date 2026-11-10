@@ -7,9 +7,9 @@
   const next = document.querySelector("#proof-next");
   if (!chart) return;
 
-  const response = await fetch("/assets/proof-of-work.json");
-  if (!response.ok) throw new Error("Could not load the learning notes");
-  const notes = await response.json();
+  const history = document.querySelector("#proof-history");
+  if (!history) throw new Error("Could not find the learning notes");
+  const notes = JSON.parse(history.textContent);
 
   const indiaDate = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Kolkata" });
   const format = (options) => new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", ...options });

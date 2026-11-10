@@ -1,6 +1,7 @@
 """Give the generated pages their existing public URLs."""
 
 import json
+import re
 from pathlib import Path
 from shutil import copytree
 
@@ -71,4 +72,24 @@ for old_url in ("programmingbitcoin/index.html", "notebooks/programmingbitcoin/i
 
 assets = site / "assets"
 assets.mkdir(exist_ok=True)
+# Keep this file available for older cached chart scripts.
 (assets / "proof-of-work.json").write_text(json.dumps(notes, ensure_ascii=False) + "\n")
+
+# Escape HTML delimiters so a note cannot close the JSON script element.
+history = json.dumps(notes, ensure_ascii=False, separators=(",", ":"))
+for character, escaped in (("&", "\\u0026"), ("<", "\\u003c"), (">", "\\u003e")):
+    history = history.replace(character, escaped)
+pattern = r'<script id="proof-history" type="application/json">.*?</script>'
+for name in ("index.html", "pages/index.html"):
+    homepage = site / name
+    if not homepage.exists():
+        continue
+    html, count = re.subn(
+        pattern,
+        lambda _: f'<script id="proof-history" type="application/json">{history}</script>',
+        homepage.read_text(),
+        flags=re.S,
+    )
+    if count != 1:
+        raise ValueError(f"Expected one learning-history element in {name}, found {count}")
+    homepage.write_text(html)

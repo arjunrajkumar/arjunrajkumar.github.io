@@ -27,6 +27,8 @@ The chart reads the published articles each time the site builds. Programming Bi
 have invisible date and topic labels beside the original words. Removing the
 passage removes its entry. The chart opens on the current calendar month, using the date in India. The small arrows select earlier months, back to the first recorded work, or return to the current month. Each view shows the whole month. All bars have the same height. Orange marks written work. Very light grey marks days with no written work, up to today. Dates before the first recorded work and future days stay empty. The bars do not show hours spent.
 
+The build includes the history in the home page. The browser makes no extra history request. Switching months uses that same data. The page reserves space for the chart before its script runs.
+
 ## Start everything
 
 In a new chat, say `start`. The workflow in `AGENTS.md` sets up the tools,
@@ -87,6 +89,8 @@ jupyter lab notebooks/verifying-bitcoin-transaction-signature/index.ipynb
 
 Double-click a text cell to edit it. Press `Shift+Enter` to show the formatted text.
 Save the notebook to update the Quarto preview.
+
+Startup installs `jupyterlab-spellchecker`. While you edit a text cell, it marks spelling errors. Right-click a marked word to choose a correction. It also checks Python comments. It does not change your words automatically. The dictionaries are local. Use **Settings → Settings Editor → Spellchecker** to change the language or mark style. If the extension was installed while Jupyter was running, save your work and restart Jupyter once. Reload the notebook tab after the restart.
 
 Run any Python cells in JupyterLab before saving. The build uses saved outputs.
 Quarto does not run notebook code during a local or published build (`execute.enabled: false`).
