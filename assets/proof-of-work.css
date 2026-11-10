@@ -16,7 +16,7 @@
 
 #proof-days {
   display: grid;
-  grid-template-columns: repeat(30, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--proof-day-count, 30), minmax(0, 1fr));
 }
 
 .proof-day {

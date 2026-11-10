@@ -1,7 +1,6 @@
 (async function () {
   const chart = document.querySelector("#proof-of-work");
   const days = document.querySelector("#proof-days");
-  const dayCount = 30;
   const details = document.querySelector("#proof-details");
   const range = document.querySelector("#proof-range");
   if (!chart) return;
@@ -66,9 +65,12 @@
     lastDay = today;
     closeDetails();
     days.replaceChildren();
-    const end = new Date(today + "T00:00:00Z");
-    const start = new Date(end);
-    start.setUTCDate(end.getUTCDate() - (dayCount - 1));
+    const start = new Date(today + "T00:00:00Z");
+    start.setUTCDate(1);
+    const end = new Date(start);
+    end.setUTCMonth(end.getUTCMonth() + 1, 0);
+    const dayCount = end.getUTCDate();
+    days.style.setProperty("--proof-day-count", dayCount);
     range.textContent = shortDate.formatRange(start, end);
 
     for (let offset = 0; offset < dayCount; offset++) {

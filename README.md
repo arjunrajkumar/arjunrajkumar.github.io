@@ -25,7 +25,7 @@ Each day has one bar. Each topic links to the passage on the blog. Older Program
 
 The chart reads the published articles each time the site builds. Programming Bitcoin exercise entries are kept in `data/programmingbitcoin-history.json`. Older passages
 have invisible date and topic labels beside the original words. Removing the
-passage removes its entry. The 30-day window moves at midnight in India. All active days have the same bar height; the bars show written work, not hours spent.
+passage removes its entry. The chart shows the current calendar month, from its first day to its last day, using the date in India. All active days have the same bar height; the bars show written work, not hours spent.
 
 ## Start everything
 
