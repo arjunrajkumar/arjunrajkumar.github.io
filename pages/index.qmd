@@ -9,8 +9,7 @@ format:
 # Arjun Rajkumar
 
 <div class="bitcoin-intro">
-<h2 class="subtitle">Currently exploring Bitcoin</h2>
-<p class="learning-progress">(91 hours down the Bitcoin rabbit hole)</p>
+<h2 class="subtitle">91 hours down the Bitcoin rabbit hole</h2>
 </div>
 
 ```{=html}
