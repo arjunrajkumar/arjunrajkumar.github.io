@@ -24,8 +24,10 @@
   let lastDay;
   let active;
   let pinned = false;
+  let hoverTimer;
 
   function closeDetails() {
+    clearTimeout(hoverTimer);
     active?.setAttribute("aria-expanded", "false");
     active = null;
     pinned = false;
@@ -40,6 +42,8 @@
   }
 
   function showDay(button, label, entries) {
+    clearTimeout(hoverTimer);
+    if (active === button) return;
     active?.setAttribute("aria-expanded", "false");
     active = button;
     button.setAttribute("aria-expanded", "true");
@@ -136,10 +140,22 @@
       }
 
       const show = () => showDay(button, label, entries);
-      button.addEventListener("pointerenter", (event) => {
-        if (event.pointerType === "mouse" && !pinned) show();
+      function preview(event) {
+        if (event.pointerType !== "mouse" || pinned || active === button) return;
+        if (!active) return show();
+        // Keep the current links while the pointer crosses other days on its way to the panel.
+        clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(show, 180);
+      }
+      button.addEventListener("pointerenter", preview);
+      button.addEventListener("pointermove", preview);
+      button.addEventListener("pointerleave", () => clearTimeout(hoverTimer));
+      button.addEventListener("focus", () => {
+        if (button.matches(":focus-visible")) {
+          pinned = false;
+          show();
+        }
       });
-      button.addEventListener("focus", () => { pinned = false; show(); });
       button.addEventListener("click", (event) => {
         if (pinned && active === button) return closeDetails();
         show();
@@ -161,7 +177,7 @@
     if (event.relatedTarget && !chart.contains(event.relatedTarget)) closeDetails();
   });
   document.addEventListener("pointerdown", (event) => {
-    if (!chart.contains(event.target)) closeDetails();
+    if (active && !active.contains(event.target) && !details.contains(event.target)) closeDetails();
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && active) {

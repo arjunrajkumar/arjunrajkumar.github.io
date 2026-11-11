@@ -25,14 +25,16 @@ format:
 </section>
 ```
 
-- [My understanding of elliptical curves](elliptical-curves/)
+<h2 class="subtitle">Bitcoin learning notes</h2>
+
+- [My understanding of elliptic curves](elliptical-curves/)
 - [Division in a finite field](division-in-a-finite-field/)
 - [Finite Fields in cryptography](finite-fields-in-cryptography/)
 - [Programming Bitcoin](https://github.com/arjunrajkumar/programmingbitcoin/) exercises
 - Deconstructing a [payment transaction](deconstructing-a-payment-transaction/)
 - Verifying a [transaction signature](verifying-bitcoin-transaction-signature/)
 
-<h2 class="subtitle">Previous work with Ruby on Rails:</h2>
+<h2 class="subtitle">Previous work</h2>
 
 - One of two early Rails developers on the core team building <a href="https://www.linkedin.com/company/lummo-official/about/" rel="noopener noreferrer" target="_blank">Lummo</a>’s backend and GraphQL APIs. Its bookkeeping app served small businesses in Indonesia and reached 2 million monthly active users.
 - First hire at  <a href="https://www.forsbergplustwo.com/" rel="noopener noreferrer" target="_blank">Forsberg+two</a>, a Copenhagen-based app development studio serving around 85,000 businesses. Built a  Rails engine and introduced automated tests across its apps.

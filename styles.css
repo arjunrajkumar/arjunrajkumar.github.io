@@ -28,8 +28,8 @@ body {
   max-width: 800px;
   padding: 1em;
   line-height: 1.4;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  -webkit-hyphens: none;
+  hyphens: none;
 }
 
 a {
@@ -259,11 +259,6 @@ a:visited {
 
 
 /* Keep typography and spacing aligned with the home and first payment pages. */
-.post-page {
-  -webkit-hyphens: none;
-  hyphens: none;
-}
-
 .post-header {
   padding-bottom: 30px;
 }
