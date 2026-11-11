@@ -303,6 +303,11 @@ a:visited {
   margin-bottom: 0;
 }
 
+.post-section blockquote mark {
+  background-color: #fff1ad;
+  color: inherit;
+}
+
 .post-section > table {
   max-width: 100%;
   margin: 1rem auto;
