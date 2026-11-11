@@ -27,6 +27,7 @@ format:
 
 <h2 class="subtitle">Bitcoin learning notes</h2>
 
+- [How can I prove I know a secret without revealing it?](proving-knowledge-of-a-secret/)
 - [My understanding of elliptic curves](elliptical-curves/)
 - [Division in a finite field](division-in-a-finite-field/)
 - [Finite Fields in cryptography](finite-fields-in-cryptography/)
