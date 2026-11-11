@@ -83,10 +83,6 @@
   justify-content: center;
 }
 
-.proof-day[data-week-start] .proof-track {
-  border-inline-start: 1px dashed #d7d7d7;
-}
-
 .proof-date {
   justify-self: center;
   white-space: nowrap;
@@ -98,10 +94,6 @@
 
 .proof-day:last-child .proof-date {
   justify-self: end;
-}
-
-.proof-day:last-child .proof-track {
-  border-inline-end: 1px solid #dcdcdc;
 }
 
 .proof-day[data-written] .proof-track::after,
