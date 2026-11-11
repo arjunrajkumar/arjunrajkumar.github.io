@@ -83,6 +83,14 @@
   justify-content: center;
 }
 
+.proof-day:not(:last-child):has(.proof-date) .proof-track {
+  border-inline-start: 1px dashed #d7d7d7;
+}
+
+.proof-day:last-child .proof-track {
+  border-inline-end: 1px solid #dcdcdc;
+}
+
 .proof-date {
   justify-self: center;
   white-space: nowrap;
