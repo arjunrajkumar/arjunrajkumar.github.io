@@ -292,6 +292,17 @@ a:visited {
   margin: 0 0 1rem;
 }
 
+.post-section blockquote {
+  margin: 0 0 1.25rem;
+  padding-inline-start: 1rem;
+  border-inline-start: 2px solid #ccc;
+  overflow-wrap: anywhere;
+}
+
+.post-section blockquote > :last-child {
+  margin-bottom: 0;
+}
+
 .post-section > table {
   max-width: 100%;
   margin: 1rem auto;
