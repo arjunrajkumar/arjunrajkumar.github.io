@@ -35,7 +35,7 @@ format:
 <h2 class="subtitle">Previous work with Ruby on Rails:</h2>
 
 - One of two early Rails developers on the core team building <a href="https://www.linkedin.com/company/lummo-official/about/" rel="noopener noreferrer" target="_blank">Lummo</a>’s backend and APIs using Rails and GraphQL. The app reached 2 million monthly active users.
-- Built a shared Rails engine and added automated tests for <a href="https://www.forsbergplustwo.com/" rel="noopener noreferrer" target="_blank">Forsberg+two</a> apps, covering subscriptions, document generation, and merchant workflows.
+- Built a shared Rails engine and added automated tests for <a href="https://www.forsbergplustwo.com/" rel="noopener noreferrer" target="_blank">Forsberg+two</a>, a profitable app development studio based in Copenhagen, Denmark, serving around 85,000 businesses.
 - Built and grew B2B SaaS apps used by 1,000+ businesses each month for inventory management, bulk image processing, and SEO. Later <a href="https://x.com/arjun_builds/status/1715144917595693159" rel="noopener noreferrer" target="_blank">sold</a> one SaaS product and managed its technical handover.
 
 <h2 class="subtitle">Writing &amp; code:</h2>
