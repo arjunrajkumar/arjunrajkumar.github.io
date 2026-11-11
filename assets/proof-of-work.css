@@ -83,12 +83,8 @@
   justify-content: center;
 }
 
-.proof-day:not(:last-child):has(.proof-date) .proof-track {
+.proof-day[data-week-start] .proof-track {
   border-inline-start: 1px dashed #d7d7d7;
-}
-
-.proof-day:last-child .proof-track {
-  border-inline-end: 1px solid #dcdcdc;
 }
 
 .proof-date {
@@ -102,6 +98,10 @@
 
 .proof-day:last-child .proof-date {
   justify-self: end;
+}
+
+.proof-day:last-child .proof-track {
+  border-inline-end: 1px solid #dcdcdc;
 }
 
 .proof-day[data-written] .proof-track::after,

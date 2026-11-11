@@ -111,9 +111,9 @@
     previous.setAttribute("aria-label", "Show " + monthLabel.format(adjacentMonth(-1)));
     next.setAttribute("aria-label", "Show " + monthLabel.format(adjacentMonth(1)));
 
-    for (let dayNumber = 1; dayNumber <= dayCount; dayNumber++) {
+    for (let offset = 0; offset < dayCount; offset++) {
       const day = new Date(start);
-      day.setUTCDate(dayNumber);
+      day.setUTCDate(start.getUTCDate() + offset);
       const key = day.toISOString().slice(0, 10);
       const entries = notes.filter((note) => note.date === key);
       const label = fullDate.format(day);
@@ -121,6 +121,7 @@
       button.type = "button";
       button.className = "proof-day";
       button.dataset.date = key;
+      if (offset % 7 === 0) button.dataset.weekStart = "";
       if (entries.length) button.dataset.written = "";
       else if (key >= firstRecordedDay && key <= today) button.dataset.missing = "";
       button.setAttribute("aria-label", label + (entries.length ? ", written work" : ", no written work"));
@@ -130,7 +131,7 @@
       track.className = "proof-track";
       track.setAttribute("aria-hidden", "true");
       button.append(track);
-      if (dayNumber === 1 || dayNumber === 15 || dayNumber === dayCount) {
+      if ((offset % 7 === 0 && offset < dayCount - 3) || offset === dayCount - 1) {
         const tick = document.createElement("span");
         tick.className = "proof-date";
         tick.setAttribute("aria-hidden", "true");
