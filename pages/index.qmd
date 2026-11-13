@@ -13,6 +13,8 @@ format:
 <p class="learning-progress">(101 hours down the Bitcoin rabbit hole)</p>
 </div>
 
+[Why Bitcoin? Isn’t it dying?](why-bitcoin/)
+
 ```{=html}
 <section id="proof-of-work" aria-label="Bitcoin learning notes by month" hidden>
   <div class="proof-heading">
