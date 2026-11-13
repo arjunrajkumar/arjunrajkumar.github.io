@@ -6,23 +6,16 @@ format:
     template: ../_quarto/home.html
 ---
 
+```{=html}
+<main class="home-page">
+```
+
 # Arjun Rajkumar
 
 <div class="bitcoin-intro">
 <h2 class="subtitle">Currently exploring Bitcoin</h2>
 <p class="learning-progress">(101 hours down the Bitcoin rabbit hole)</p>
 </div>
-
-```{=html}
-<details class="why-bitcoin">
-  <summary>Why Bitcoin? Isn’t it dying?</summary>
-```
-
-{{< include _why-bitcoin-body.qmd >}}
-
-```{=html}
-</details>
-```
 
 ```{=html}
 <section id="proof-of-work" aria-label="Bitcoin learning notes by month" hidden>
@@ -62,3 +55,23 @@ format:
 - <a href="https://dev.to/arjunrajkumar/integration-unit-tests-with-tdd-in-rails-3230" rel="noopener noreferrer" target="_blank">Integration &amp; unit tests with TDD in Rails</a> — January 2020
 - <a href="https://medium.com/@ArjunRajkumar/using-shape-up-to-build-a-shopify-app-bf913408af9" rel="noopener noreferrer" target="_blank">Using Shape Up to build a Shopify app</a> — October 2019
 - <a href="https://medium.com/@ArjunRajkumar/getting-computers-to-see-better-than-humans-346d96634f73" rel="noopener noreferrer" target="_blank">Building a dog-breed classifier with deep learning</a> — November 2017
+
+```{=html}
+</main>
+
+<footer class="site-footer">
+<details class="why-bitcoin">
+  <summary>Why Bitcoin? Isn’t it dying?</summary>
+```
+
+{{< include _why-bitcoin-body.qmd >}}
+
+```{=html}
+</details>
+  <a href="https://x.com/arjun_builds" target="_blank" rel="noopener noreferrer" aria-label="Arjun on X" title="Arjun on X">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817-5.974 6.817H1.672l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  </a>
+</footer>
+```

@@ -97,6 +97,10 @@ a:visited {
 }
 
 .site-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: 1rem;
   margin-top: 3em;
   padding-top: 1em;
   border-top: 1px solid #eee;
