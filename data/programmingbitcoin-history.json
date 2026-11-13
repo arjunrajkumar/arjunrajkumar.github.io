@@ -113,5 +113,20 @@
     "date": "2026-11-07",
     "topic": "Exercise 3.4 — Repeated point addition and the point at infinity",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/5a90d438ab760c611e0b859a6b2347251973febe/code-ch03/Chapter3.ipynb"
+  },
+  {
+    "date": "2026-11-12",
+    "topic": "Exercise 3.5 — Finding that (15, 86) has order 7",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/b264c086a159c83d587f2a51609158026902a9ec/code-ch03/Chapter3.ipynb#Exercise-5"
+  },
+  {
+    "date": "2026-11-12",
+    "topic": "Checking that G lies on secp256k1 and that nG is the point at infinity",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/b264c086a159c83d587f2a51609158026902a9ec/code-ch03/Chapter3.ipynb"
+  },
+  {
+    "date": "2026-11-12",
+    "topic": "Verifying a signature with the Chapter 3 public key example",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/b264c086a159c83d587f2a51609158026902a9ec/code-ch03/Chapter3.ipynb"
   }
 ]
