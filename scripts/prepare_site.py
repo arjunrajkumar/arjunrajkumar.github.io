@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 from shutil import copytree
+from xml.etree import ElementTree as ET
 
 import yaml
 
@@ -43,13 +44,21 @@ for source, target in pages.items():
 # Read only pages in the current render list. Old preview files can outlive a post.
 targets = yaml.safe_load((root / "_quarto.yml").read_text())["project"]["render"]
 notes = []
+sitemap = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 for target in targets:
     source = str(Path(target).with_suffix(".html"))
     public = pages.get(source, source)
     rendered = site / source
-    if public != "index.html" and rendered.is_file():
-        url = "/" + public.removesuffix("index.html")
+    if not rendered.is_file():
+        continue
+    url = "/" + public.removesuffix("index.html")
+    entry = ET.SubElement(sitemap, "url")
+    ET.SubElement(entry, "loc").text = "https://arjunrajkumar.github.io" + url
+    if public != "index.html":
         notes.extend(article_notes(rendered.read_text(), url))
+
+ET.indent(sitemap)
+ET.ElementTree(sitemap).write(site / "sitemap.xml", encoding="utf-8", xml_declaration=True)
 
 # Keep dated exercise work from the chapter notebooks and archived workbook.
 notes.extend(json.loads((root / "data" / "programmingbitcoin-history.json").read_text()))
