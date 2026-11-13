@@ -13,6 +13,7 @@ project:
     - python3 scripts/prepare_site.py
   resources:
     - .nojekyll
+    - robots.txt
     - styles.css
     - assets/**
 
