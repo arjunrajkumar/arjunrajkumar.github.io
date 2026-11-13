@@ -13,7 +13,16 @@ format:
 <p class="learning-progress">(101 hours down the Bitcoin rabbit hole)</p>
 </div>
 
-[Why Bitcoin? Isn’t it dying?](why-bitcoin/)
+```{=html}
+<details class="why-bitcoin">
+  <summary>Why Bitcoin? Isn’t it dying?</summary>
+```
+
+{{< include _why-bitcoin-body.qmd >}}
+
+```{=html}
+</details>
+```
 
 ```{=html}
 <section id="proof-of-work" aria-label="Bitcoin learning notes by month" hidden>

@@ -68,6 +68,13 @@ a:visited {
   font-size: 0.875rem;
 }
 
+.why-bitcoin > summary {
+  width: fit-content;
+  color: #0077aa;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .home-page > ul,
 .post-section > ul,
 .post-section > ol {

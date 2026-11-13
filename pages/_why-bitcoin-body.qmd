@@ -1,0 +1,7 @@
+Today, my wife asked, “Why Bitcoin? Isn’t it dying?” And this was my answer to her on why I’m changing careers from Rails to Bitcoin-related work.
+
+As long as govts print money, there will be demand for things like Bitcoin. It’s a counter to the way money is done in the mainstream.
+
+If you look at Bitcoin’s current price around specific dates, maybe you can say Bitcoin is dying. But price always fluctuates and also depends on the time frame you look at. E.g., Zcash used to be around \$30 in 2023 and is now closer to \$1,000. Maybe a 3,000% increase? Bitcoin was about \~\$30,000 in Nov 2023, and is \$75,000 today. But I’m not looking at price, as it’s not a complete measure of the tech behind it.
+
+It’s hard to predict the future. Maybe in 10 years, Bitcoin will be gone and Zcash (or something new) will be No. 1. Also, I don’t know what dev skills will be required as everything is changing. But directionally, I see long-term opportunity in this space... programmable money, blockchains and financial privacy.
