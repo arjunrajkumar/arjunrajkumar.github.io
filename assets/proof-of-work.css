@@ -1,7 +1,7 @@
 #proof-of-work {
   position: relative;
   width: 100%;
-  min-height: 9.8rem;
+  min-height: 8.65rem;
   margin: 1.1rem 0 1.5rem;
 }
 
@@ -15,11 +15,13 @@
   display: flex;
   align-items: center;
   gap: 0;
-  margin: 0 0 0.15rem;
+  margin: 0 0 0.65rem;
 }
 
 .proof-hint {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0 auto;
+  padding-inline-start: 0.5rem;
+  text-align: right;
 }
 
 .proof-hint-tap {
@@ -38,6 +40,7 @@
 
 #proof-range {
   margin: 0;
+  white-space: nowrap;
 }
 
 .proof-month-button {
