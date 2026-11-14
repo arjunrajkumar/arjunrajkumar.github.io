@@ -128,5 +128,30 @@
     "date": "2026-11-12",
     "topic": "Verifying a signature with the Chapter 3 public key example",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/b264c086a159c83d587f2a51609158026902a9ec/code-ch03/Chapter3.ipynb"
+  },
+  {
+    "date": "2026-11-14",
+    "topic": "Exercises 4.1–4.2 — Writing compressed and uncompressed public keys in SEC format",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/89d25eae3c52c9096c80c770efa1fc53da0f212c/code-ch04/Chapter4.ipynb#Exercise-1"
+  },
+  {
+    "date": "2026-11-14",
+    "topic": "Exercise 4.3 — Encoding a signature in DER format",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/89d25eae3c52c9096c80c770efa1fc53da0f212c/code-ch04/Chapter4.ipynb#Exercise-3"
+  },
+  {
+    "date": "2026-11-14",
+    "topic": "Exercises 4.4–4.6 — Base58, Bitcoin addresses, and Wallet Import Format",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/89d25eae3c52c9096c80c770efa1fc53da0f212c/code-ch04/Chapter4.ipynb#Exercise-4"
+  },
+  {
+    "date": "2026-11-14",
+    "topic": "Exercises 4.7–4.8 — Converting between integers and little-endian bytes",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/89d25eae3c52c9096c80c770efa1fc53da0f212c/code-ch04/Chapter4.ipynb#Exercise-7"
+  },
+  {
+    "date": "2026-11-14",
+    "topic": "Exercise 4.9 — Generating a testnet address",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/89d25eae3c52c9096c80c770efa1fc53da0f212c/code-ch04/Chapter4.ipynb#Exercise-9"
   }
 ]
