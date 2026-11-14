@@ -64,19 +64,8 @@ a:visited {
 .bitcoin-intro > .learning-progress {
   display: inline;
   margin: 0;
-}
-
-.bitcoin-intro > .learning-progress,
-.why-bitcoin > summary {
   color: #666;
   font-size: 0.875rem;
-}
-
-.why-bitcoin > summary {
-  width: fit-content;
-  text-decoration: underline dashed 1px;
-  text-underline-offset: 0.2em;
-  cursor: pointer;
 }
 
 .home-page > ul,
@@ -97,10 +86,6 @@ a:visited {
 }
 
 .site-footer {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  column-gap: 1rem;
   margin-top: 3em;
   padding-top: 1em;
   border-top: 1px solid #eee;
