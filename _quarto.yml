@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - pages/index.qmd
+    - notebooks/serializaion/index.ipynb
     - notebooks/proving-knowledge-of-a-secret/index.ipynb
     - notebooks/elliptical-curves/index.ipynb
     - notebooks/division-in-a-finite-field/index.ipynb
