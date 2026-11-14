@@ -14,7 +14,8 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
-    "notebooks/serializaion/index.html": "serialization/index.html",
+    "notebooks/uncompressing-a-public-key/Uncompressing a public key.html":
+        "uncompressing-a-public-key/index.html",
     "notebooks/proving-knowledge-of-a-secret/index.html":
         "proving-knowledge-of-a-secret/index.html",
     "notebooks/elliptical-curves/index.html": "elliptical-curves/index.html",
@@ -64,23 +65,30 @@ ET.ElementTree(sitemap).write(site / "sitemap.xml", encoding="utf-8", xml_declar
 # Keep dated exercise work from the chapter notebooks and archived workbook.
 notes.extend(json.loads((root / "data" / "programmingbitcoin-history.json").read_text()))
 
-# Existing bookmarks must still reach the chapter work.
-book_url = "https://github.com/arjunrajkumar/programmingbitcoin/"
-redirect = f'''<!doctype html>
+def write_redirect(old_url, url, title, link_text):
+    destination = site / old_url
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Programming Bitcoin</title>
-<meta http-equiv="refresh" content="0; url={book_url}">
-<link rel="canonical" href="{book_url}">
+<title>{title}</title>
+<meta http-equiv="refresh" content="0; url={url}">
+<link rel="canonical" href="{url}">
 </head>
-<body><p><a href="{book_url}">Programming Bitcoin exercises on GitHub</a></p></body>
+<body><p><a href="{url}">{link_text}</a></p></body>
 </html>
-'''
+''')
+
+
+# Keep old bookmarks working when a page moves.
+book_url = "https://github.com/arjunrajkumar/programmingbitcoin/"
 for old_url in ("programmingbitcoin/index.html", "notebooks/programmingbitcoin/index.html"):
-    destination = site / old_url
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(redirect)
+    write_redirect(old_url, book_url, "Programming Bitcoin", "Programming Bitcoin exercises on GitHub")
+
+post_title = "Uncompressing a public key"
+for old_url in ("serialization/index.html", "notebooks/serializaion/index.html"):
+    write_redirect(old_url, "/uncompressing-a-public-key/", post_title, post_title)
 
 assets = site / "assets"
 assets.mkdir(exist_ok=True)

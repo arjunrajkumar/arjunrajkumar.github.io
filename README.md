@@ -116,7 +116,7 @@ also count. The workspace listens for successful saves and commits the changed n
 on `main`. It pushes that commit to GitHub. The site builds from the saved outputs.
 Future workspace starts reconnect the publisher automatically.
 
-This applies to tracked `notebooks/<post>/index.ipynb` files listed in the committed
+This applies to tracked `.ipynb` files directly inside each `notebooks/<post>/` folder listed in the committed
 `project.render` section of `_quarto.yml`. A new post needs its notebook, render entry,
 URL mapping, and homepage link committed and pushed together once.
 The playground and homepage use the manual Git workflow.

@@ -60,7 +60,7 @@ def saved_file(path):
             return SavedFile(BOOK_LINK, relative, "master")
         return None
     parts = PurePosixPath(path).parts
-    if len(parts) == 3 and parts[0] == "notebooks" and parts[2] == "index.ipynb":
+    if len(parts) == 3 and parts[0] == "notebooks" and parts[2].endswith(".ipynb"):
         return SavedFile(ROOT, path, "main")
     return None
 
@@ -166,7 +166,7 @@ def listen(runtime):
                     url, header={"Authorization": "token " + server["token"]},
                     timeout=10, suppress_origin=True, http_no_proxy=["localhost", "127.0.0.1"],
                 )) as stream:
-                    ready.write_text(json.dumps({"pid": os.getpid(), "server_pid": server["pid"], "chapter_saves": True}))
+                    ready.write_text(json.dumps({"pid": os.getpid(), "server_pid": server["pid"], "chapter_saves": True, "named_post_saves": True}))
                     print("Listening for notebook saves", flush=True)
                     retry_at = 0
                     while True:

@@ -168,10 +168,10 @@ def ensure_publisher(server, runtime_file):
             if (state["server_pid"] != server["pid"] or str(script) not in process.cmdline()
                     or str(runtime_file) not in process.cmdline()):
                 return False
-            if state.get("chapter_saves"):
+            if state.get("named_post_saves"):
                 return True
             if upgrade:
-                # The old subscriber only watched notebooks. Keep Jupyter and its kernels running.
+                # Replace the old save listener without stopping Jupyter or its kernels.
                 process.terminate()
                 process.wait(timeout=10)
             return False
