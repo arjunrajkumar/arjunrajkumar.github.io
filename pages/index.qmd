@@ -24,6 +24,10 @@ format:
     <p id="proof-range" aria-live="polite"></p>
     <button id="proof-next" class="proof-month-button" type="button" aria-label="Next month" aria-controls="proof-days"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg></button>
   </div>
+  <p class="proof-hint">
+    <span class="proof-hint-hover">Hover a day to explore my notes.</span>
+    <span class="proof-hint-tap">Tap a day to explore my notes.</span>
+  </p>
   <div id="proof-days"></div>
   <div id="proof-details" hidden></div>
 </section>
