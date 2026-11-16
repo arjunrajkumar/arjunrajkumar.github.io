@@ -14,8 +14,8 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
-    "notebooks/validating-transactions/Validating transactions.html":
-        "validating-transactions/index.html",
+    "notebooks/validating-each-input-has-a-correct-scriptsig/index.html":
+        "validating-each-input-has-a-correct-scriptsig/index.html",
     "notebooks/uncompressing-a-public-key/Uncompressing a public key.html":
         "uncompressing-a-public-key/index.html",
     "notebooks/proving-knowledge-of-a-secret/index.html":
@@ -91,6 +91,12 @@ for old_url in ("programmingbitcoin/index.html", "notebooks/programmingbitcoin/i
 post_title = "Uncompressing a public key"
 for old_url in ("serialization/index.html", "notebooks/serializaion/index.html"):
     write_redirect(old_url, "/uncompressing-a-public-key/", post_title, post_title)
+
+validation_title = "Validating each input has a correct ScriptSig."
+write_redirect(
+    "validating-transactions/index.html", "/validating-each-input-has-a-correct-scriptsig/",
+    validation_title, validation_title,
+)
 
 assets = site / "assets"
 assets.mkdir(exist_ok=True)
