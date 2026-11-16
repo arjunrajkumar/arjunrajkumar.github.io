@@ -168,5 +168,20 @@
     "date": "2026-11-14",
     "topic": "Exercise 5.6 — Calculating a transaction fee in satoshis",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/75487290a25d3f7fac7e931ad30044a39f68f491/code-ch05/Chapter5.ipynb#Exercise-6"
+  },
+  {
+    "date": "2026-11-16",
+    "topic": "Exercise 6.1 — Hashing a stack item with OP_HASH160",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/55e6caf276843a443a115e0713c0bbcf3b0dd046/code-ch06/Chapter6.ipynb#Exercise-1"
+  },
+  {
+    "date": "2026-11-16",
+    "topic": "Exercise 6.2 — Verifying a signature with OP_CHECKSIG",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/55e6caf276843a443a115e0713c0bbcf3b0dd046/code-ch06/Chapter6.ipynb#Exercise-2"
+  },
+  {
+    "date": "2026-11-16",
+    "topic": "Exercise 6.3 — Solving a Bitcoin Script arithmetic puzzle",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/55e6caf276843a443a115e0713c0bbcf3b0dd046/code-ch06/Chapter6.ipynb#Exercise-3"
   }
 ]
