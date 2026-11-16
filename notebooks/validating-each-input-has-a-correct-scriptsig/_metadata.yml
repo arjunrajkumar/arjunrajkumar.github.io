@@ -1,3 +1,3 @@
-title: Validating each input has a correct ScriptSig.
-pagetitle: Validating each input has a correct ScriptSig. — Arjun Rajkumar
+title: Validating each input has a correct ScriptSig
+pagetitle: Validating each input has a correct ScriptSig — Arjun Rajkumar
 description: How a validator calculates a signature hash for each input in a pre-SegWit Bitcoin transaction.

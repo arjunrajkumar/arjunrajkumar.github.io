@@ -92,7 +92,7 @@ post_title = "Uncompressing a public key"
 for old_url in ("serialization/index.html", "notebooks/serializaion/index.html"):
     write_redirect(old_url, "/uncompressing-a-public-key/", post_title, post_title)
 
-validation_title = "Validating each input has a correct ScriptSig."
+validation_title = "Validating each input has a correct ScriptSig"
 write_redirect(
     "validating-transactions/index.html", "/validating-each-input-has-a-correct-scriptsig/",
     validation_title, validation_title,
