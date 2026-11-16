@@ -183,5 +183,20 @@
     "date": "2026-11-16",
     "topic": "Exercise 6.3 — Solving a Bitcoin Script arithmetic puzzle",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/55e6caf276843a443a115e0713c0bbcf3b0dd046/code-ch06/Chapter6.ipynb#Exercise-3"
+  },
+  {
+    "date": "2026-11-16",
+    "topic": "Exercise 6.4 — Exploring a SHA-1 puzzle (in progress)",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/a56274a04738418b81031190a050ac9ef676dafb/code-ch06/Chapter6.ipynb#Exercise-4"
+  },
+  {
+    "date": "2026-11-16",
+    "topic": "Exercise 7.1 — Calculating a transaction signature hash",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/e8789f79b461296799b2504bc2c4fbd5b7326b4b/code-ch07/Chapter7.ipynb#Exercise-1"
+  },
+  {
+    "date": "2026-11-16",
+    "topic": "Exercise 7.2 — Checking an input signature against its locking script",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/e8789f79b461296799b2504bc2c4fbd5b7326b4b/code-ch07/Chapter7.ipynb#Exercise-2"
   }
 ]

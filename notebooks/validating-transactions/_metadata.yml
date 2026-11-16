@@ -1,0 +1,3 @@
+title: Validating transactions
+pagetitle: Validating transactions — Arjun Rajkumar
+description: How a validator calculates a signature hash for each input in a pre-SegWit Bitcoin transaction.

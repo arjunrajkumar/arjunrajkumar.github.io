@@ -14,6 +14,8 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
+    "notebooks/validating-transactions/Validating transactions.html":
+        "validating-transactions/index.html",
     "notebooks/uncompressing-a-public-key/Uncompressing a public key.html":
         "uncompressing-a-public-key/index.html",
     "notebooks/proving-knowledge-of-a-secret/index.html":
