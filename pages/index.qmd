@@ -33,7 +33,7 @@ format:
 </section>
 ```
 
-<h2 class="subtitle">Bitcoin learning notes</h2>
+<h2 class="subtitle">Bitcoin notes</h2>
 
 - [Uncompressing a public key](uncompressing-a-public-key/)
 - [How can I prove I know a secret without revealing it?](proving-knowledge-of-a-secret/)
