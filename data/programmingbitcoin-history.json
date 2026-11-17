@@ -198,5 +198,15 @@
     "date": "2026-11-16",
     "topic": "Exercise 7.2 — Checking an input signature against its locking script",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/e8789f79b461296799b2504bc2c4fbd5b7326b4b/code-ch07/Chapter7.ipynb#Exercise-2"
+  },
+  {
+    "date": "2026-11-17",
+    "topic": "Exercise 4.9 — Creating a second testnet address",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/1e5d3c9a0368e4a5b8ea12f96c5f8f354d7a82b1/code-ch04/Chapter4.ipynb#Exercise-9"
+  },
+  {
+    "date": "2026-11-17",
+    "topic": "Exercise 7.3 — Signing a transaction input and checking its signature",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/5ca5f2680ff7f278a2a986f6f3d5bb6e0678aeb4/code-ch07/Chapter7.ipynb#Exercise-3"
   }
 ]
