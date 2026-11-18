@@ -14,7 +14,7 @@ format:
 
 <div class="bitcoin-intro">
 <h2 class="subtitle">Learning Bitcoin fundamentals</h2>
-<p class="learning-progress">(107 hours down the Bitcoin rabbit hole)</p>
+<p class="learning-progress">(112 hours down the Bitcoin rabbit hole)</p>
 </div>
 
 ```{=html}

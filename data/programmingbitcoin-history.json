@@ -208,5 +208,35 @@
     "date": "2026-11-17",
     "topic": "Exercise 7.3 — Signing a transaction input and checking its signature",
     "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/5ca5f2680ff7f278a2a986f6f3d5bb6e0678aeb4/code-ch07/Chapter7.ipynb#Exercise-3"
+  },
+  {
+    "date": "2026-11-18",
+    "topic": "Exercise 8.1 — Checking multiple signatures with OP_CHECKMULTISIG",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/17e0b3497fe7745e2f35dbb62e2c92632d1a7f7a/code-ch08/Chapter8.ipynb#Exercise-1"
+  },
+  {
+    "date": "2026-11-18",
+    "topic": "Exercise 8.2 — Converting a public key hash to a P2PKH address",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/17e0b3497fe7745e2f35dbb62e2c92632d1a7f7a/code-ch08/Chapter8.ipynb#Exercise-2"
+  },
+  {
+    "date": "2026-11-18",
+    "topic": "Exercise 8.3 — Converting a script hash to a P2SH address",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/17e0b3497fe7745e2f35dbb62e2c92632d1a7f7a/code-ch08/Chapter8.ipynb#Exercise-3"
+  },
+  {
+    "date": "2026-11-18",
+    "topic": "Exercise 8.4 — Validating the second signature in a multisignature transaction",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/17e0b3497fe7745e2f35dbb62e2c92632d1a7f7a/code-ch08/Chapter8.ipynb#Exercise-4"
+  },
+  {
+    "date": "2026-11-18",
+    "topic": "Exercise 8.5 — Verifying P2SH transactions with sig_hash and verify_input",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/17e0b3497fe7745e2f35dbb62e2c92632d1a7f7a/code-ch08/Chapter8.ipynb#Exercise-5"
+  },
+  {
+    "date": "2026-11-18",
+    "topic": "Fixing the unmatched final signature bug in OP_CHECKMULTISIG — pull request #303",
+    "href": "https://github.com/jimmysong/programmingbitcoin/pull/303"
   }
 ]
