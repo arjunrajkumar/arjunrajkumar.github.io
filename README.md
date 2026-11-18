@@ -41,6 +41,23 @@ python3.13 scripts/start_workspace.py
 ```
 
 This also works on a new computer once Git, Python 3.13, and this Git clone are present.
+Review the downloaded startup code before its first use on a new computer.
+Startup fetches new commits for review. It shows their commit IDs, changed files,
+and full code diff before applying them. Changes to instruction files, startup
+scripts, build settings, and dependencies are flagged. Type the approval text
+shown for each exact commit to continue. Press Enter to stop.
+
+In Codex, the agent shows you the review and asks for your approval in chat before
+it answers the terminal prompt. A noninteractive run stops when approval is
+needed. All pending updates need approval before startup applies any of them.
+Startup then reloads the approved code and starts the tools. Open notebook
+sessions and local edits must be preserved before an update can be applied.
+
+The local rule in `~/.codex/AGENTS.md` requires the agent to report instruction
+changes before following them. Copy this rule to a new computer after reviewing
+it. Direct manual Git updates and direct script execution are outside the startup
+check, so review those changes before running them too.
+
 The script creates the local environment and installs missing tools.
 It opens JupyterLab with its login token handled and checks that nbdime is available.
 On checkouts with publish on save enabled, it reconnects the publisher and retries queued saves.

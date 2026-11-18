@@ -13,7 +13,9 @@ from urllib.parse import quote, urlencode, urlsplit
 from urllib.request import Request, urlopen
 import webbrowser
 
-from prepare_programming_bitcoin import BOOK_LINK, DEFAULT_BOOK_NOTEBOOK, prepare_book, update_checkout
+from prepare_programming_bitcoin import (
+    BOOK_LINK, DEFAULT_BOOK_NOTEBOOK, apply_checkout_updates, prepare_book, review_checkout,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -110,6 +112,22 @@ def local_jupyter_servers():
     return [server for server in list_running_servers()
             if Path(server.get("root_dir", "")).resolve() == ROOT
             and urlsplit(server["url"]).hostname in ("127.0.0.1", "localhost")]
+
+
+def sessions_open_before_update():
+    if not PYTHON.exists():
+        return False
+    # Use the existing installed environment, without importing repository code.
+    code = (
+        "import json; from jupyter_server.serverapp import list_running_servers; "
+        "print(json.dumps(list(list_running_servers())))"
+    )
+    servers = json.loads(subprocess.check_output(
+        [str(PYTHON), "-I", "-c", code], cwd=ROOT.parent, text=True, timeout=30,
+    ))
+    return any(request_json(server, "api/sessions") for server in servers
+               if Path(server.get("root_dir", "")).resolve() == ROOT
+               and urlsplit(server["url"]).hostname in ("127.0.0.1", "localhost"))
 
 
 def ensure_jupyter(preferred):
@@ -259,17 +277,27 @@ def main():
     os.chdir(ROOT)
     if not (ROOT / ".git").exists():
         raise RuntimeError("Use a Git clone of the website repository, not a downloaded folder.")
+    if args.notebook == "notebooks/programmingbitcoin/index.ipynb":
+        args.notebook = DEFAULT_BOOK_NOTEBOOK
+    requested = Path(os.path.abspath(ROOT / args.notebook))
+    book = prepare_book() if requested.is_relative_to(BOOK_LINK) else None
+    checkouts = [(ROOT, "main")]
+    if book is not None:
+        checkouts.append((book, "master"))
+    updates = []
+    for repo, branch in checkouts:
+        update = review_checkout(repo, branch)
+        if update is not None:
+            updates.append(update)
+    apply_checkout_updates(updates, sessions_open_before_update)
+    if updates:
+        # Reload approved startup code before installing dependencies or servers.
+        os.execv(sys.executable, [sys.executable, str(Path(__file__).resolve()), *sys.argv[1:]])
+        return
     prepare_tools()
     import nbformat
     from jupyter_core.paths import jupyter_runtime_dir
     notebook, notebook_path, book = resolve_notebook(args.notebook)
-    if book is not None:
-
-        def sessions_open():
-            return any(request_json(item, "api/sessions") for item in local_jupyter_servers())
-
-        update_checkout(ROOT, "main", sessions_open)
-        update_checkout(book, "master", sessions_open)
     nbformat.validate(nbformat.read(notebook_path, as_version=4))
     server = ensure_jupyter(8889)
     check_notebook(server, notebook)
