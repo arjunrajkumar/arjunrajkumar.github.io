@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - pages/index.qmd
+    - notebooks/block-version/index.ipynb
     - notebooks/Sending some bitcoins (testnet)/index.ipynb
     - notebooks/validating-each-input-has-a-correct-scriptsig/index.ipynb
     - notebooks/uncompressing-a-public-key/Uncompressing a public key.ipynb
