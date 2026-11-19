@@ -238,5 +238,45 @@
     "date": "2026-11-18",
     "topic": "Fixing the unmatched final signature bug in OP_CHECKMULTISIG — pull request #303",
     "href": "https://github.com/jimmysong/programmingbitcoin/pull/303"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.1 — Identifying coinbase transactions",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-1"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.2 — Reading block height from a coinbase transaction",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-2"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.3 — Parsing a block header",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-3"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.4 — Serializing a block header",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-4"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.5 — Calculating a block ID from its header",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-5"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.6 — Checking BIP9 version bits",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-6"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.7 — Checking the BIP91 signal",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-7"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Exercise 9.8 — Checking the BIP141 signal",
+    "href": "https://github.com/arjunrajkumar/programmingbitcoin/blob/7f51f2513fe9366d8552cbb178c94f6644f99f4b/code-ch09/Chapter9.ipynb#Exercise-8"
   }
 ]
