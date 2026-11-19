@@ -14,7 +14,7 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
-    "notebooks/calculating-target/index.html": "calculating-target/index.html",
+    "notebooks/calculating-target/index.html": "proof-of-work-target-and-difficulty/index.html",
     "notebooks/block-version/index.html": "block-version/index.html",
     "notebooks/Sending some bitcoins (testnet)/index.html": "sending-some-bitcoins-testnet/index.html",
     "notebooks/validating-each-input-has-a-correct-scriptsig/index.html":
@@ -87,6 +87,12 @@ def write_redirect(old_url, url, title, link_text):
 
 
 # Keep old bookmarks working when a page moves.
+proof_title = "Proof-of-work, target &amp; difficulty"
+write_redirect(
+    "calculating-target/index.html", "/proof-of-work-target-and-difficulty/",
+    proof_title, proof_title,
+)
+
 book_url = "https://github.com/arjunrajkumar/programmingbitcoin/"
 for old_url in ("programmingbitcoin/index.html", "notebooks/programmingbitcoin/index.html"):
     write_redirect(old_url, book_url, "Programming Bitcoin", "Programming Bitcoin exercises on GitHub")

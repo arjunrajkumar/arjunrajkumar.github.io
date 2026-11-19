@@ -35,7 +35,7 @@ format:
 
 <h2 class="subtitle">Bitcoin notes</h2>
 
-- [Calculating target](calculating-target/)
+- [Proof-of-work, target & difficulty](proof-of-work-target-and-difficulty/)
 - [Block version](block-version/)
 - [Sending some bitcoins (testnet)](sending-some-bitcoins-testnet/)
 - [Validating each input has a correct ScriptSig](validating-each-input-has-a-correct-scriptsig/)
