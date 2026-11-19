@@ -14,6 +14,7 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
+    "notebooks/calculating-target/index.html": "calculating-target/index.html",
     "notebooks/block-version/index.html": "block-version/index.html",
     "notebooks/Sending some bitcoins (testnet)/index.html": "sending-some-bitcoins-testnet/index.html",
     "notebooks/validating-each-input-has-a-correct-scriptsig/index.html":
