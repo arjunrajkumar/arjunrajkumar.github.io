@@ -12,28 +12,7 @@ format:
 
 # Arjun Rajkumar
 
-<div class="bitcoin-intro">
-<h2 class="subtitle">Exploring Bitcoin fundamentals</h2>
-<p class="learning-progress">(114 hours down the Bitcoin rabbit hole)</p>
-</div>
-
-```{=html}
-<section id="proof-of-work" aria-label="Bitcoin learning notes by month" hidden>
-  <div class="proof-heading">
-    <button id="proof-previous" class="proof-month-button" type="button" aria-label="Previous month" aria-controls="proof-days"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 6-6 6 6 6"/></svg></button>
-    <p id="proof-range" aria-live="polite"></p>
-    <button id="proof-next" class="proof-month-button" type="button" aria-label="Next month" aria-controls="proof-days"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 6 6 6-6 6"/></svg></button>
-    <p class="proof-hint">
-      <span class="proof-hint-hover">Hover over a day to explore my notes</span>
-      <span class="proof-hint-tap">Tap on a day to explore my notes</span>
-    </p>
-  </div>
-  <div id="proof-days"></div>
-  <div id="proof-details" hidden></div>
-</section>
-```
-
-<h2 class="subtitle">Bitcoin notes</h2>
+<h2 class="subtitle">Exploring Bitcoin fundamentals:</h2>
 
 - [Proof-of-work, target & difficulty](proof-of-work-target-and-difficulty/)
 - [Block version](block-version/)
