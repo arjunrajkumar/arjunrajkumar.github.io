@@ -14,6 +14,7 @@ format:
 
 <h2 class="subtitle">Exploring Bitcoin fundamentals:</h2>
 
+- [Using Merkle trees to prove transaction inclusion](using-merkle-trees-to-prove-transaction-inclusion/)
 - [Proof-of-work, target & difficulty](proof-of-work-target-and-difficulty/)
 - [Block version](block-version/)
 - [Sending some bitcoins (testnet)](sending-some-bitcoins-testnet/)

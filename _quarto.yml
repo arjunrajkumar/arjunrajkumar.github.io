@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - pages/index.qmd
+    - notebooks/merkle_tree/index.ipynb
     - notebooks/calculating-target/index.ipynb
     - notebooks/block-version/index.ipynb
     - notebooks/Sending some bitcoins (testnet)/index.ipynb

@@ -14,6 +14,7 @@ root = Path(__file__).resolve().parents[1]
 site = root / "_site"
 pages = {
     "pages/index.html": "index.html",
+    "notebooks/merkle_tree/index.html": "using-merkle-trees-to-prove-transaction-inclusion/index.html",
     "notebooks/calculating-target/index.html": "proof-of-work-target-and-difficulty/index.html",
     "notebooks/block-version/index.html": "block-version/index.html",
     "notebooks/Sending some bitcoins (testnet)/index.html": "sending-some-bitcoins-testnet/index.html",
@@ -87,6 +88,11 @@ def write_redirect(old_url, url, title, link_text):
 
 
 # Keep old bookmarks working when a page moves.
+merkle_title = "Using Merkle trees to prove transaction inclusion"
+merkle_url = "/using-merkle-trees-to-prove-transaction-inclusion/"
+for old_url in ("merkle_root/index.html", "merkle_tree/index.html"):
+    write_redirect(old_url, merkle_url, merkle_title, merkle_title)
+
 proof_title = "Proof-of-work, target &amp; difficulty"
 write_redirect(
     "calculating-target/index.html", "/proof-of-work-target-and-difficulty/",
